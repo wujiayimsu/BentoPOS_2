@@ -1,7 +1,7 @@
 ﻿'Programmmed by Jiayi Wu
 Public Class frmOrdering
     Private DB As New DBAccess
-
+    Dim strline As String = ("-----------------------------------------------------------------")
     Private Sub FilmForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
         ButtomFiguresDisplay()
@@ -112,7 +112,6 @@ Public Class frmOrdering
     Sub ItemCount()
         Dim Sum As Integer
         Dim i As Integer
-        Dim strline As String = ("-----------------------------------------------------------------")
 
         For i = 0 To lstQuantity.Items.Count - 1
             If lstOrderItem.Items(i) = strline Then
@@ -128,7 +127,6 @@ Public Class frmOrdering
         Dim LineTotal As Double = 0.00
         Dim dblSubTotal As Double = 0.00
         Dim i As Integer
-        Dim strline As String = ("-----------------------------------------------------------------")
 
         For i = 0 To lstOrderItem.Items.Count - 1
             If lstOrderItem.Items(i) = strline Then
@@ -171,7 +169,6 @@ Public Class frmOrdering
 
 
     Private Sub btnLine_Click(sender As Object, e As EventArgs) Handles btnLine.Click
-        Dim strline As String = ("-----------------------------------------------------------------")
         lstOrderItem.Items.Add(strline)
         lstQuantity.Items.Add(strline)
         lstPrice.Items.Add(strline)
@@ -195,10 +192,14 @@ Public Class frmOrdering
         If lstOrderItem.SelectedIndex < 0 Then
             MessageBox.Show("Please select the item to duplicate")
         Else
-            Dim intSelectedIndex As Integer = lstOrderItem.SelectedIndex
-            Dim intQuantity As Integer = CInt(lstQuantity.Items(intSelectedIndex))
-            intQuantity += 1
-            lstQuantity.Items(intSelectedIndex) = intQuantity
+            If lstOrderItem.SelectedItem = strline Then
+                MessageBox.Show("Line can not be duplicated")
+            Else
+                Dim intSelectedIndex As Integer = lstOrderItem.SelectedIndex
+                Dim intQuantity As Integer = CInt(lstQuantity.Items(intSelectedIndex))
+                intQuantity += 1
+                lstQuantity.Items(intSelectedIndex) = intQuantity
+            End If
         End If
         ButtomFiguresDisplay()
 
