@@ -18,7 +18,7 @@ Public Class CustomerForm
 
     Private Sub SearchCustomer(FirstName As String, LastName As String)
         DB.AddParam("@firstname", FirstName & "%")   '1st parameter
-        DB.AddParam("@lastname", LastName & "%")     '2nd parameter
+        'DB.AddParam("@lastname", LastName & "%")     '2nd parameter
 
         DB.ExecuteQuery("SELECT * FROM customer WHERE first_name LIKE ? AND last_name LIKE ?")
 
