@@ -48,12 +48,10 @@ Partial Class frmOrdering
         Me.btnReceipt = New System.Windows.Forms.Button()
         Me.btnPay = New System.Windows.Forms.Button()
         Me.btnSplitEqual = New System.Windows.Forms.Button()
-        Me.btnHold = New System.Windows.Forms.Button()
         Me.btnLine = New System.Windows.Forms.Button()
         Me.btnNote = New System.Windows.Forms.Button()
         Me.btnDiscount = New System.Windows.Forms.Button()
         Me.btnSplitItem = New System.Windows.Forms.Button()
-        Me.btnVoid = New System.Windows.Forms.Button()
         Me.btnRemoveItem = New System.Windows.Forms.Button()
         Me.btnSplitBill = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -284,7 +282,7 @@ Partial Class frmOrdering
         Me.btnDuplicate.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnDuplicate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDuplicate.ForeColor = System.Drawing.Color.Black
-        Me.btnDuplicate.Location = New System.Drawing.Point(477, 391)
+        Me.btnDuplicate.Location = New System.Drawing.Point(481, 396)
         Me.btnDuplicate.Name = "btnDuplicate"
         Me.btnDuplicate.Size = New System.Drawing.Size(110, 40)
         Me.btnDuplicate.TabIndex = 41
@@ -336,25 +334,12 @@ Partial Class frmOrdering
         Me.btnSplitEqual.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitEqual.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitEqual.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 292)
+        Me.btnSplitEqual.Location = New System.Drawing.Point(481, 232)
         Me.btnSplitEqual.Name = "btnSplitEqual"
         Me.btnSplitEqual.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitEqual.TabIndex = 30
         Me.btnSplitEqual.Text = "Split Equally"
         Me.btnSplitEqual.UseVisualStyleBackColor = False
-        '
-        'btnHold
-        '
-        Me.btnHold.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnHold.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnHold.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHold.ForeColor = System.Drawing.Color.Black
-        Me.btnHold.Location = New System.Drawing.Point(477, 575)
-        Me.btnHold.Name = "btnHold"
-        Me.btnHold.Size = New System.Drawing.Size(110, 40)
-        Me.btnHold.TabIndex = 29
-        Me.btnHold.Text = "Hold"
-        Me.btnHold.UseVisualStyleBackColor = False
         '
         'btnLine
         '
@@ -362,7 +347,7 @@ Partial Class frmOrdering
         Me.btnLine.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnLine.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLine.ForeColor = System.Drawing.Color.Black
-        Me.btnLine.Location = New System.Drawing.Point(477, 529)
+        Me.btnLine.Location = New System.Drawing.Point(481, 561)
         Me.btnLine.Name = "btnLine"
         Me.btnLine.Size = New System.Drawing.Size(110, 40)
         Me.btnLine.TabIndex = 28
@@ -375,7 +360,7 @@ Partial Class frmOrdering
         Me.btnNote.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNote.ForeColor = System.Drawing.Color.Black
-        Me.btnNote.Location = New System.Drawing.Point(477, 483)
+        Me.btnNote.Location = New System.Drawing.Point(481, 506)
         Me.btnNote.Name = "btnNote"
         Me.btnNote.Size = New System.Drawing.Size(110, 40)
         Me.btnNote.TabIndex = 27
@@ -388,7 +373,7 @@ Partial Class frmOrdering
         Me.btnDiscount.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDiscount.ForeColor = System.Drawing.Color.Black
-        Me.btnDiscount.Location = New System.Drawing.Point(477, 338)
+        Me.btnDiscount.Location = New System.Drawing.Point(481, 287)
         Me.btnDiscount.Name = "btnDiscount"
         Me.btnDiscount.Size = New System.Drawing.Size(110, 40)
         Me.btnDiscount.TabIndex = 26
@@ -401,25 +386,12 @@ Partial Class frmOrdering
         Me.btnSplitItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitItem.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitItem.Location = New System.Drawing.Point(477, 246)
+        Me.btnSplitItem.Location = New System.Drawing.Point(481, 177)
         Me.btnSplitItem.Name = "btnSplitItem"
         Me.btnSplitItem.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitItem.TabIndex = 25
         Me.btnSplitItem.Text = "Split Item"
         Me.btnSplitItem.UseVisualStyleBackColor = False
-        '
-        'btnVoid
-        '
-        Me.btnVoid.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnVoid.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnVoid.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVoid.ForeColor = System.Drawing.Color.Black
-        Me.btnVoid.Location = New System.Drawing.Point(477, 152)
-        Me.btnVoid.Name = "btnVoid"
-        Me.btnVoid.Size = New System.Drawing.Size(110, 40)
-        Me.btnVoid.TabIndex = 24
-        Me.btnVoid.Text = "VOID  BILL"
-        Me.btnVoid.UseVisualStyleBackColor = False
         '
         'btnRemoveItem
         '
@@ -427,7 +399,7 @@ Partial Class frmOrdering
         Me.btnRemoveItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnRemoveItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemoveItem.ForeColor = System.Drawing.Color.Black
-        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 437)
+        Me.btnRemoveItem.Location = New System.Drawing.Point(481, 451)
         Me.btnRemoveItem.Name = "btnRemoveItem"
         Me.btnRemoveItem.Size = New System.Drawing.Size(110, 40)
         Me.btnRemoveItem.TabIndex = 22
@@ -440,7 +412,7 @@ Partial Class frmOrdering
         Me.btnSplitBill.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitBill.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitBill.Location = New System.Drawing.Point(477, 200)
+        Me.btnSplitBill.Location = New System.Drawing.Point(481, 122)
         Me.btnSplitBill.Name = "btnSplitBill"
         Me.btnSplitBill.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitBill.TabIndex = 17
@@ -453,7 +425,7 @@ Partial Class frmOrdering
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Location = New System.Drawing.Point(477, 621)
+        Me.btnClear.Location = New System.Drawing.Point(481, 616)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 16
@@ -537,12 +509,10 @@ Partial Class frmOrdering
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnSplitEqual)
-        Me.Controls.Add(Me.btnHold)
         Me.Controls.Add(Me.btnLine)
         Me.Controls.Add(Me.btnNote)
         Me.Controls.Add(Me.btnDiscount)
         Me.Controls.Add(Me.btnSplitItem)
-        Me.Controls.Add(Me.btnVoid)
         Me.Controls.Add(Me.btnRemoveItem)
         Me.Controls.Add(Me.btnSplitBill)
         Me.Controls.Add(Me.btnClear)
@@ -576,12 +546,10 @@ Partial Class frmOrdering
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSplitBill As Button
     Friend WithEvents btnRemoveItem As Button
-    Friend WithEvents btnVoid As Button
     Friend WithEvents btnSplitItem As Button
     Friend WithEvents btnDiscount As Button
     Friend WithEvents btnNote As Button
     Friend WithEvents btnLine As Button
-    Friend WithEvents btnHold As Button
     Friend WithEvents btnSplitEqual As Button
     Friend WithEvents lstOrderItem As ListBox
     Friend WithEvents Label4 As Label
