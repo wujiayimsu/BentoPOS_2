@@ -4,6 +4,7 @@ Public Class frmOrdering
 
     Private Sub FilmForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
+        ButtomFiguresDisplay()
 
     End Sub
     '*********************************************Add buttons for pnlMenuCategory*********************************************************'
@@ -95,15 +96,67 @@ Public Class frmOrdering
         dtMenuItemPrice = DB.DBDataTable
         lstPrice.Items.Add(dtMenuItemPrice.Rows(0).Item("price").ToString)
 
-        ''''''''''''''item Count
+        ButtomFiguresDisplay()
+    End Sub
+
+    '******************************Button Figure Display*******************************************'
+    Sub ButtomFiguresDisplay()
+        ItemCount()
+        SubtotalDisplay()
+        tax()
+        DiscountedAmt()
+        Total()
+    End Sub
+
+
+    Sub ItemCount()
         Dim Sum As Integer
         Dim i As Integer
+        Dim strline As String = ("-----------------------------------------------------------------")
 
         For i = 0 To lstQuantity.Items.Count - 1
-            Sum = Sum + Val(lstQuantity.Items(i))
+            If lstOrderItem.Items(i) = strline Then
+                Sum = Sum
+            Else
+                Sum = Sum + Val(lstQuantity.Items(i))
+            End If
         Next
         lblItemCount.Text = Sum.ToString
+
     End Sub
+    Sub SubtotalDisplay()
+        Dim LineTotal As Double = 0.00
+        Dim dblSubTotal As Double = 0.00
+        Dim i As Integer
+        Dim strline As String = ("-----------------------------------------------------------------")
+
+        For i = 0 To lstOrderItem.Items.Count - 1
+            If lstOrderItem.Items(i) = strline Then
+                dblSubTotal = dblSubTotal
+            Else
+                LineTotal = lstQuantity.Items(i) * lstPrice.Items(i)
+                dblSubTotal += LineTotal
+            End If
+        Next
+        lblSubTotal.Text = dblSubTotal
+
+    End Sub
+    Sub tax()
+        Dim dblTaxRate As Decimal = 0.06
+        lblTax.Text = (CDbl(lblSubTotal.Text) * dblTaxRate).ToString("N2")
+
+    End Sub
+    Sub Total()
+        Dim decTotal As Decimal
+        decTotal = CDec(lblSubTotal.Text) + CDec(lblTax.Text) - CDec(lblDiscAmt.Text)
+        lblTotal.Text = decTotal.ToString("N2")
+
+    End Sub
+    Sub DiscountedAmt()
+
+    End Sub
+
+
     '*********************************************Button Functions*********************************************************'
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
@@ -113,12 +166,15 @@ Public Class frmOrdering
         lstOrderItem.Items.Clear()
         lstPrice.Items.Clear()
         lstQuantity.Items.Clear()
+        ButtomFiguresDisplay()
     End Sub
 
+
     Private Sub btnLine_Click(sender As Object, e As EventArgs) Handles btnLine.Click
-        lstOrderItem.Items.Add("_______________________________________")
-        lstQuantity.Items.Add("_______________________")
-        lstPrice.Items.Add("_______________________")
+        Dim strline As String = ("-----------------------------------------------------------------")
+        lstOrderItem.Items.Add(strline)
+        lstQuantity.Items.Add(strline)
+        lstPrice.Items.Add(strline)
     End Sub
 
     Private Sub btnRemoveItem_Click(sender As Object, e As EventArgs) Handles btnRemoveItem.Click
@@ -131,6 +187,8 @@ Public Class frmOrdering
             lstPrice.Items.RemoveAt(strSelectedIndex)
         End If
 
+        ButtomFiguresDisplay()
+
     End Sub
 
     Private Sub btnDuplicate_Click(sender As Object, e As EventArgs) Handles btnDuplicate.Click
@@ -138,8 +196,30 @@ Public Class frmOrdering
             MessageBox.Show("Please select the item to duplicate")
         Else
             Dim intSelectedIndex As Integer = lstOrderItem.SelectedIndex
-            lstQuantity.Items(intSelectedIndex) += 1
+            Dim intQuantity As Integer = CInt(lstQuantity.Items(intSelectedIndex))
+            intQuantity += 1
+            lstQuantity.Items(intSelectedIndex) = intQuantity
         End If
+        ButtomFiguresDisplay()
 
+    End Sub
+
+    Sub SelectedAll()
+        Dim intSelect As Integer = lstOrderItem.SelectedIndex
+        lstPrice.SelectedIndex = intSelect
+        lstQuantity.SelectedIndex = intSelect
+
+    End Sub
+
+    Private Sub lstOrderItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstOrderItem.SelectedIndexChanged
+        SelectedAll()
+    End Sub
+
+    Private Sub lstPrice_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstPrice.SelectedIndexChanged
+        SelectedAll()
+    End Sub
+
+    Private Sub lstQuantity_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstQuantity.SelectedIndexChanged
+        SelectedAll()
     End Sub
 End Class
