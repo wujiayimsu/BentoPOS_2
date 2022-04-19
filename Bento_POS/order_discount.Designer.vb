@@ -169,6 +169,7 @@ Partial Class frmOrder_discount
         Me.Controls.Add(Me.pnlButtonGroup)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmOrder_discount"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "order_discount"
         Me.pnlRibbon.ResumeLayout(False)
         Me.pnlRibbon.PerformLayout()

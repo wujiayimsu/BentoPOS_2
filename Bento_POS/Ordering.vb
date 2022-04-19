@@ -239,8 +239,17 @@ Public Class frmOrdering
     End Sub
 
     Private Sub btnDiscount_Click_1(sender As Object, e As EventArgs) Handles btnDiscount.Click
-        Dim frmDiscount As New frmOrder_discount
-        frmDiscount.ShowDialog()
+
+        If CDec(lblDiscAmt.Text) = 0 Then
+            Dim frmDiscount As New frmOrder_discount
+            frmDiscount.ShowDialog()
+            ButtomFiguresDisplay()
+        Else
+            decDiscountRate = 0.00
+            ButtomFiguresDisplay()
+        End If
+
+
     End Sub
 
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click

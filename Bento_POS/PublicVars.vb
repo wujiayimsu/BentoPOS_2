@@ -3,6 +3,4 @@
     Public decDiscountRate As Decimal
 
 
-
-
 End Module

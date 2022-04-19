@@ -38,10 +38,12 @@
         pnlTakeOut.Visible = True
         pnlHome.Visible = False
 
-        SearchOpenOrder("0pen", "to go")
+        SearchOpenTOGO("0pen", "to go")
     End Sub
 
-    Sub SearchOpenOrder(strStatus As String, strType As String)
+    Sub SearchOpenTOGO(strStatus As String, strType As String)
+
+        pnlOpenTakeOut.Controls.Clear()
 
         Dim dtOpenOrder As New DataTable
         strStatus = "open"
