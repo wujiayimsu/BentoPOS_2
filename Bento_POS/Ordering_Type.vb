@@ -1,4 +1,6 @@
-﻿Public Class Ordering_Type
+﻿Public Class frmOrdering_Type
+    Private DB As New DBAccess
+
     '*********************************************Left Panel*********************************************************'
     Sub TableNumber(Sender As Object)
         Dim strTableNumber As String = Sender.text
@@ -7,11 +9,16 @@
         frmOrdering.lblTableNo.Text = Sender.text
         frmOrdering.ShowDialog()
     End Sub
+
+    Sub pnlDinein_load()
+
+    End Sub
     Private Sub btnDineIn_Click(sender As Object, e As EventArgs) Handles btnDineIn.Click
         pnl_btnDineIn.Height = btnDineIn.Height
         pnl_btnDineIn.Top = btnDineIn.Top
         pnlDineIn.Visible = True
         pnlTakeOut.Visible = False
+        pnlHome.Visible = False
 
 
         AddHandler btnTable1.Click, Sub() TableNumber(btnTable1)
@@ -29,9 +36,46 @@
         pnl__btnTakeOut.Top = btnTakeOut.Top
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = True
+        pnlHome.Visible = False
+
+        SearchOpenOrder("0pen", "to go")
     End Sub
 
+    Sub SearchOpenOrder(strStatus As String, strType As String)
 
+        Dim dtOpenOrder As New DataTable
+        strStatus = "open"
+
+        DB.AddParam("@order_status", strStatus)
+        DB.AddParam("@order_type", strType)
+        DB.ExecuteQuery("SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.order_status, o.order_type FROM customer AS c JOIN customer_order AS o ON c.customer_id=o.customer_id WHERE order_status = ? AND order_type =?")
+
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
+
+        dtOpenOrder = DB.DBDataTable
+
+        Try
+            For Each row In dtOpenOrder.Rows
+                Dim btnOpenOrder As New Button
+
+                btnOpenOrder.Text = (row("order_id") & " - " & row("first_name"))
+                btnOpenOrder.Size = New Size(120, 35)
+                btnOpenOrder.Font = New System.Drawing.Font("Calibri", 10, FontStyle.Bold)
+
+                pnlOpenTakeOut.Controls.Add(btnOpenOrder)
+
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show("error")
+        End Try
+    End Sub
+    Sub LoadOpenOrder(sender As Object)
+
+    End Sub
 
     '*********************************************Take Out Panel *********************************************************'
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -40,8 +84,14 @@
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         Dim frmOrdering As New frmOrdering
-        frmOrdering.lblTableNo.Text = txtFirstName.Text
-        frmOrdering.ShowDialog()
+
+        If txtFirstName.Text = String.Empty Then
+            MessageBox.Show("First Name is required")
+            txtFirstName.Focus()
+        Else
+            frmOrdering.lblTableNo.Text = txtFirstName.Text
+            frmOrdering.ShowDialog()
+        End If
 
     End Sub
 
@@ -51,10 +101,15 @@
         txtPhone.Clear()
     End Sub
 
+    Private Sub frmOrdering_Type_Load(sender As Object, e As EventArgs) Handles Me.Load
+        pnlHome.Visible = True
+        pnlDineIn.Visible = False
+        pnlTakeOut.Visible = False
+    End Sub
 
-
-
-
-
-
+    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+        pnlHome.Visible = True
+        pnlDineIn.Visible = False
+        pnlTakeOut.Visible = False
+    End Sub
 End Class

@@ -118,17 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="YumBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YumBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="YumPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YumPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="YumYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YumYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="YumColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YumColor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dinein" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dinein.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnDinein" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnDinein.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Yum ribbon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yum ribbon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,19 +130,34 @@
   <data name="YumBrown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YumBrown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dinein Symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dinein Symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="YumBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YumBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnDinein" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnDinein.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WeChat Image_20220411232957" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WeChat Image_20220411232957.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YumYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YumYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dinein" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dinein.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YumColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YumColor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="YumGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YumGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="YumPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YumPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Yum_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Yum_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WeChat Image_20220411232957" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WeChat Image_20220411232957.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="22a16a9353b20c7a04617a9fb6a2a06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\22a16a9353b20c7a04617a9fb6a2a06.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dinein Symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dinein Symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9cc355b0a3ff8c34b99d8e670dae47c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9cc355b0a3ff8c34b99d8e670dae47c.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
