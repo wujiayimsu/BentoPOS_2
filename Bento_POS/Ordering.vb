@@ -1,7 +1,6 @@
 ﻿'Programmmed by Jiayi Wu
 Public Class frmOrdering
     Private DB As New DBAccess
-    Dim strline As String = ("-----------------------------------------------------------------")
 
     Private Sub FilmForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
@@ -241,8 +240,11 @@ Public Class frmOrdering
 
     Private Sub btnDiscount_Click_1(sender As Object, e As EventArgs) Handles btnDiscount.Click
         Dim frmDiscount As New frmOrder_discount
-
         frmDiscount.ShowDialog()
+    End Sub
+
+    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
 
     End Sub
+
 End Class

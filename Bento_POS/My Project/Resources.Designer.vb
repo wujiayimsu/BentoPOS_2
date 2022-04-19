@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _22a16a9353b20c7a04617a9fb6a2a06() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("22a16a9353b20c7a04617a9fb6a2a06", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _9cc355b0a3ff8c34b99d8e670dae47c() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("9cc355b0a3ff8c34b99d8e670dae47c", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property btnDinein() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("btnDinein", resourceCulture)

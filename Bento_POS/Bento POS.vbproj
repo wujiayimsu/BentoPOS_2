@@ -125,10 +125,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="order_discount.Designer.vb">
-      <DependentUpon>order_discount.vb</DependentUpon>
+    <Compile Include="Order_Discount.Designer.vb">
+      <DependentUpon>Order_Discount.vb</DependentUpon>
     </Compile>
-    <Compile Include="order_discount.vb">
+    <Compile Include="Order_Discount.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -148,8 +148,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="order_discount.resx">
-      <DependentUpon>order_discount.vb</DependentUpon>
+    <EmbeddedResource Include="Order_Discount.resx">
+      <DependentUpon>Order_Discount.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Yum_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22a16a9353b20c7a04617a9fb6a2a06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9cc355b0a3ff8c34b99d8e670dae47c.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
