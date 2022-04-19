@@ -485,7 +485,7 @@ Partial Class frmOrdering
         Me.lblDiscountRateInfo.AutoSize = True
         Me.lblDiscountRateInfo.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDiscountRateInfo.ForeColor = System.Drawing.Color.Firebrick
-        Me.lblDiscountRateInfo.Location = New System.Drawing.Point(20, 652)
+        Me.lblDiscountRateInfo.Location = New System.Drawing.Point(12, 104)
         Me.lblDiscountRateInfo.Name = "lblDiscountRateInfo"
         Me.lblDiscountRateInfo.Size = New System.Drawing.Size(126, 23)
         Me.lblDiscountRateInfo.TabIndex = 58

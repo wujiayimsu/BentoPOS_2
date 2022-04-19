@@ -156,7 +156,17 @@ Public Class frmOrdering
 
         decDiscountAmt = CDec(lblSubTotal.Text) * decDiscountRate
         lblDiscAmt.Text = ("-" & decDiscountAmt.ToString("N2"))
-        lblDiscountRateInfo.Text = decDiscountRate.ToString("N2")
+        If decDiscountAmt = 0 Then
+            lblDiscountRateInfo.Visible = False
+            Label7.ForeColor = Color.Black
+            lblDiscAmt.ForeColor = Color.Black
+        Else
+            lblDiscountRateInfo.Visible = True
+            lblDiscAmt.ForeColor = Color.Firebrick
+            Label7.ForeColor = Color.Firebrick
+            lblDiscountRateInfo.Text = ("*Discount Applied at " & FormatPercent(decDiscountRate))
+        End If
+
     End Sub
 
 
