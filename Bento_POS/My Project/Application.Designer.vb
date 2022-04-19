@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.ReadSearch.Ordering_Type
+            Me.MainForm = Global.ReadSearch.frmOrdering
         End Sub
     End Class
 End Namespace

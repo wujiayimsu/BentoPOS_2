@@ -43,6 +43,7 @@ Partial Class frmOrdering
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.btnSend = New System.Windows.Forms.Button()
         Me.btnDuplicate = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnReceipt = New System.Windows.Forms.Button()
@@ -50,15 +51,15 @@ Partial Class frmOrdering
         Me.btnSplitEqual = New System.Windows.Forms.Button()
         Me.btnLine = New System.Windows.Forms.Button()
         Me.btnNote = New System.Windows.Forms.Button()
-        Me.btnDiscount = New System.Windows.Forms.Button()
         Me.btnSplitItem = New System.Windows.Forms.Button()
         Me.btnRemoveItem = New System.Windows.Forms.Button()
         Me.btnSplitBill = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
-        Me.btnSend = New System.Windows.Forms.Button()
+        Me.btnDiscount = New System.Windows.Forms.Button()
+        Me.lblDiscountRateInfo = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.pnlOrderItem.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -276,13 +277,26 @@ Partial Class frmOrdering
         Me.Label10.TabIndex = 56
         Me.Label10.Text = "Price"
         '
+        'btnSend
+        '
+        Me.btnSend.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnSend.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
+        Me.btnSend.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnSend.Location = New System.Drawing.Point(702, 104)
+        Me.btnSend.Name = "btnSend"
+        Me.btnSend.Size = New System.Drawing.Size(100, 40)
+        Me.btnSend.TabIndex = 57
+        Me.btnSend.Text = "SEND"
+        Me.btnSend.UseVisualStyleBackColor = False
+        '
         'btnDuplicate
         '
         Me.btnDuplicate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnDuplicate.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnDuplicate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDuplicate.ForeColor = System.Drawing.Color.Black
-        Me.btnDuplicate.Location = New System.Drawing.Point(481, 396)
+        Me.btnDuplicate.Location = New System.Drawing.Point(477, 396)
         Me.btnDuplicate.Name = "btnDuplicate"
         Me.btnDuplicate.Size = New System.Drawing.Size(110, 40)
         Me.btnDuplicate.TabIndex = 41
@@ -334,7 +348,7 @@ Partial Class frmOrdering
         Me.btnSplitEqual.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitEqual.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitEqual.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitEqual.Location = New System.Drawing.Point(481, 232)
+        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 232)
         Me.btnSplitEqual.Name = "btnSplitEqual"
         Me.btnSplitEqual.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitEqual.TabIndex = 30
@@ -347,7 +361,7 @@ Partial Class frmOrdering
         Me.btnLine.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnLine.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLine.ForeColor = System.Drawing.Color.Black
-        Me.btnLine.Location = New System.Drawing.Point(481, 561)
+        Me.btnLine.Location = New System.Drawing.Point(477, 561)
         Me.btnLine.Name = "btnLine"
         Me.btnLine.Size = New System.Drawing.Size(110, 40)
         Me.btnLine.TabIndex = 28
@@ -360,25 +374,12 @@ Partial Class frmOrdering
         Me.btnNote.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNote.ForeColor = System.Drawing.Color.Black
-        Me.btnNote.Location = New System.Drawing.Point(481, 506)
+        Me.btnNote.Location = New System.Drawing.Point(477, 506)
         Me.btnNote.Name = "btnNote"
         Me.btnNote.Size = New System.Drawing.Size(110, 40)
         Me.btnNote.TabIndex = 27
         Me.btnNote.Text = "Note"
         Me.btnNote.UseVisualStyleBackColor = False
-        '
-        'btnDiscount
-        '
-        Me.btnDiscount.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnDiscount.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDiscount.ForeColor = System.Drawing.Color.Black
-        Me.btnDiscount.Location = New System.Drawing.Point(481, 287)
-        Me.btnDiscount.Name = "btnDiscount"
-        Me.btnDiscount.Size = New System.Drawing.Size(110, 40)
-        Me.btnDiscount.TabIndex = 26
-        Me.btnDiscount.Text = "Discount"
-        Me.btnDiscount.UseVisualStyleBackColor = False
         '
         'btnSplitItem
         '
@@ -386,7 +387,7 @@ Partial Class frmOrdering
         Me.btnSplitItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitItem.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitItem.Location = New System.Drawing.Point(481, 177)
+        Me.btnSplitItem.Location = New System.Drawing.Point(477, 177)
         Me.btnSplitItem.Name = "btnSplitItem"
         Me.btnSplitItem.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitItem.TabIndex = 25
@@ -399,7 +400,7 @@ Partial Class frmOrdering
         Me.btnRemoveItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnRemoveItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemoveItem.ForeColor = System.Drawing.Color.Black
-        Me.btnRemoveItem.Location = New System.Drawing.Point(481, 451)
+        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 451)
         Me.btnRemoveItem.Name = "btnRemoveItem"
         Me.btnRemoveItem.Size = New System.Drawing.Size(110, 40)
         Me.btnRemoveItem.TabIndex = 22
@@ -412,7 +413,7 @@ Partial Class frmOrdering
         Me.btnSplitBill.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitBill.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitBill.Location = New System.Drawing.Point(481, 122)
+        Me.btnSplitBill.Location = New System.Drawing.Point(477, 122)
         Me.btnSplitBill.Name = "btnSplitBill"
         Me.btnSplitBill.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitBill.TabIndex = 17
@@ -425,7 +426,7 @@ Partial Class frmOrdering
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Location = New System.Drawing.Point(481, 616)
+        Me.btnClear.Location = New System.Drawing.Point(477, 616)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 16
@@ -437,26 +438,23 @@ Partial Class frmOrdering
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
         Me.Panel2.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.lblDeveloper)
         Me.Panel2.Controls.Add(Me.lblTableNo)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1139, 93)
         Me.Panel2.TabIndex = 12
         '
-        'Label1
+        'lblDeveloper
         '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(1061, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 19)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Jiayi Wu"
+        Me.lblDeveloper.AutoSize = True
+        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
+        Me.lblDeveloper.Location = New System.Drawing.Point(1016, 9)
+        Me.lblDeveloper.Name = "lblDeveloper"
+        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
+        Me.lblDeveloper.TabIndex = 51
+        Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
         'lblTableNo
         '
@@ -469,18 +467,29 @@ Partial Class frmOrdering
         Me.lblTableNo.TabIndex = 50
         Me.lblTableNo.Text = "TABLE NO."
         '
-        'btnSend
+        'btnDiscount
         '
-        Me.btnSend.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnSend.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
-        Me.btnSend.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnSend.Location = New System.Drawing.Point(702, 104)
-        Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(100, 40)
-        Me.btnSend.TabIndex = 57
-        Me.btnSend.Text = "SEND"
-        Me.btnSend.UseVisualStyleBackColor = False
+        Me.btnDiscount.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnDiscount.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
+        Me.btnDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDiscount.ForeColor = System.Drawing.Color.Black
+        Me.btnDiscount.Location = New System.Drawing.Point(477, 287)
+        Me.btnDiscount.Name = "btnDiscount"
+        Me.btnDiscount.Size = New System.Drawing.Size(110, 40)
+        Me.btnDiscount.TabIndex = 26
+        Me.btnDiscount.Text = "Discount"
+        Me.btnDiscount.UseVisualStyleBackColor = False
+        '
+        'lblDiscountRateInfo
+        '
+        Me.lblDiscountRateInfo.AutoSize = True
+        Me.lblDiscountRateInfo.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiscountRateInfo.ForeColor = System.Drawing.Color.Firebrick
+        Me.lblDiscountRateInfo.Location = New System.Drawing.Point(20, 652)
+        Me.lblDiscountRateInfo.Name = "lblDiscountRateInfo"
+        Me.lblDiscountRateInfo.Size = New System.Drawing.Size(126, 23)
+        Me.lblDiscountRateInfo.TabIndex = 58
+        Me.lblDiscountRateInfo.Text = "*DiscountRate"
         '
         'frmOrdering
         '
@@ -489,6 +498,7 @@ Partial Class frmOrdering
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1139, 714)
+        Me.Controls.Add(Me.lblDiscountRateInfo)
         Me.Controls.Add(Me.btnSend)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
@@ -543,11 +553,9 @@ Partial Class frmOrdering
     Friend WithEvents btnReceipt As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnSplitBill As Button
     Friend WithEvents btnRemoveItem As Button
     Friend WithEvents btnSplitItem As Button
-    Friend WithEvents btnDiscount As Button
     Friend WithEvents btnNote As Button
     Friend WithEvents btnLine As Button
     Friend WithEvents btnSplitEqual As Button
@@ -571,4 +579,7 @@ Partial Class frmOrdering
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents btnSend As Button
+    Friend WithEvents lblDeveloper As Label
+    Friend WithEvents btnDiscount As Button
+    Friend WithEvents lblDiscountRateInfo As Label
 End Class

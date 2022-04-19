@@ -96,6 +96,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DBAccess.vb" />
+    <Compile Include="PublicVars.vb" />
     <Compile Include="Ordering_Type.Designer.vb">
       <DependentUpon>Ordering_Type.vb</DependentUpon>
     </Compile>
@@ -124,7 +125,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Settings.vb" />
+    <Compile Include="order_discount.Designer.vb">
+      <DependentUpon>order_discount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="order_discount.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomerForm.resx">
@@ -141,6 +147,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="order_discount.resx">
+      <DependentUpon>order_discount.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +208,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WeChat Image_20220411232957.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yum_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

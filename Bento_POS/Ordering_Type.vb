@@ -1,4 +1,4 @@
-﻿Public Class Ordering_Type
+﻿Public Class frmOrdering_Type
     '*********************************************Left Panel*********************************************************'
     Sub TableNumber(Sender As Object)
         Dim strTableNumber As String = Sender.text

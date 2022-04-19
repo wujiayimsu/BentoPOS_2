@@ -2,6 +2,7 @@
 Public Class frmOrdering
     Private DB As New DBAccess
     Dim strline As String = ("-----------------------------------------------------------------")
+
     Private Sub FilmForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
         ButtomFiguresDisplay()
@@ -100,7 +101,7 @@ Public Class frmOrdering
     End Sub
 
     '******************************Button Figure Display*******************************************'
-    Sub ButtomFiguresDisplay()
+    Public Sub ButtomFiguresDisplay()
         ItemCount()
         SubtotalDisplay()
         tax()
@@ -146,12 +147,16 @@ Public Class frmOrdering
     End Sub
     Sub Total()
         Dim decTotal As Decimal
-        decTotal = CDec(lblSubTotal.Text) + CDec(lblTax.Text) - CDec(lblDiscAmt.Text)
+        decTotal = CDec(lblSubTotal.Text) + CDec(lblTax.Text) + CDec(lblDiscAmt.Text)
         lblTotal.Text = decTotal.ToString("N2")
 
     End Sub
     Sub DiscountedAmt()
+        Dim decDiscountAmt As Decimal = 0.00
 
+        decDiscountAmt = CDec(lblSubTotal.Text) * decDiscountRate
+        lblDiscAmt.Text = ("-" & decDiscountAmt.ToString("N2"))
+        lblDiscountRateInfo.Text = decDiscountRate.ToString("N2")
     End Sub
 
 
@@ -222,5 +227,12 @@ Public Class frmOrdering
 
     Private Sub lstQuantity_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstQuantity.SelectedIndexChanged
         SelectedAll()
+    End Sub
+
+    Private Sub btnDiscount_Click_1(sender As Object, e As EventArgs) Handles btnDiscount.Click
+        Dim frmDiscount As New frmOrder_discount
+
+        frmDiscount.ShowDialog()
+
     End Sub
 End Class
