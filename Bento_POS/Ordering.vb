@@ -1,11 +1,15 @@
 ﻿'Programmmed by Jiayi Wu
 Public Class frmOrdering
     Private DB As New DBAccess
+    Dim rs As New Resizer
 
-    Private Sub FilmForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub frmOdering_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
         ButtomFiguresDisplay()
-
+        rs.FindAllControls(Me)
+    End Sub
+    Private Sub frmOdering_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        rs.ResizeAllControls(Me)
     End Sub
     '*********************************************Add buttons for pnlMenuCategory*********************************************************'
     Sub CreatebtnFoodCategory()
@@ -77,7 +81,7 @@ Public Class frmOrdering
 
 
     '*********************************************Add Ordering items TO the list box*********************************************************'
-    Sub MenuItemSelection(Sender As Object)
+    Public Sub MenuItemSelection(Sender As Object)
 
         '''''''Display ordering item name, quantity and price; Quantity default to one
         Dim strMenuItem As String = Sender.text

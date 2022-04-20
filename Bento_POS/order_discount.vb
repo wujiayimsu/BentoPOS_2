@@ -1,8 +1,10 @@
 ﻿Public Class frmOrder_discount
     Private DB As New DBAccess
     Dim dtDiscount As New DataTable
+    Dim rs As New Resizer
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
+        rs.FindAllControls(Me)
     End Sub
 
     Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
@@ -76,5 +78,9 @@
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         lblDiscount.Text = String.Empty
         lblDescription.Text = String.Empty
+    End Sub
+
+    Private Sub frmOrder_discount_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        rs.ResizeAllControls(Me)
     End Sub
 End Class

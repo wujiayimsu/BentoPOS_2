@@ -1,5 +1,6 @@
 ﻿Public Class frmOrdering_Type
     Private DB As New DBAccess
+    Dim rs As New Resizer
 
     '*********************************************Left Panel*********************************************************'
     Sub TableNumber(Sender As Object)
@@ -41,43 +42,7 @@
         SearchOpenTOGO("0pen", "to go")
     End Sub
 
-    Sub SearchOpenTOGO(strStatus As String, strType As String)
 
-        pnlOpenTakeOut.Controls.Clear()
-
-        Dim dtOpenOrder As New DataTable
-        strStatus = "open"
-
-        DB.AddParam("@order_status", strStatus)
-        DB.AddParam("@order_type", strType)
-        DB.ExecuteQuery("SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.order_status, o.order_type FROM customer AS c JOIN customer_order AS o ON c.customer_id=o.customer_id WHERE order_status = ? AND order_type =?")
-
-        If DB.DBException <> String.Empty Then
-            MessageBox.Show(DB.DBException)
-            Exit Sub
-        End If
-
-        dtOpenOrder = DB.DBDataTable
-
-        Try
-            For Each row In dtOpenOrder.Rows
-                Dim btnOpenOrder As New Button
-
-                btnOpenOrder.Text = (row("order_id") & " - " & row("first_name"))
-                btnOpenOrder.Size = New Size(120, 35)
-                btnOpenOrder.Font = New System.Drawing.Font("Calibri", 10, FontStyle.Bold)
-
-                pnlOpenTakeOut.Controls.Add(btnOpenOrder)
-
-            Next
-
-        Catch ex As Exception
-            MessageBox.Show("error")
-        End Try
-    End Sub
-    Sub LoadOpenOrder(sender As Object)
-
-    End Sub
 
     '*********************************************Take Out Panel *********************************************************'
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -94,7 +59,6 @@
             frmOrdering.lblTableNo.Text = txtFirstName.Text
             frmOrdering.ShowDialog()
         End If
-
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -107,11 +71,18 @@
         pnlHome.Visible = True
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = False
+
+        rs.FindAllControls(Me)
+
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         pnlHome.Visible = True
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = False
+    End Sub
+
+    Private Sub frmOrdering_Type_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        rs.ResizeAllControls(Me)
     End Sub
 End Class

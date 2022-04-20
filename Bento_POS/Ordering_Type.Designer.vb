@@ -58,10 +58,10 @@ Partial Class frmOrdering_Type
         Me.pnlHome = New System.Windows.Forms.Panel()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.pnl_btnExit = New System.Windows.Forms.Panel()
         Me.pnlDineIn.SuspendLayout()
         Me.pnlLeftSide.SuspendLayout()
         Me.pnlTakeOut.SuspendLayout()
-        Me.pnlTitle.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlDineIn
@@ -215,6 +215,8 @@ Partial Class frmOrdering_Type
         'pnlLeftSide
         '
         Me.pnlLeftSide.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.pnlLeftSide.Controls.Add(Me.pnl_btnExit)
+        Me.pnlLeftSide.Controls.Add(Me.btnExit)
         Me.pnlLeftSide.Controls.Add(Me.pnl_btnHome)
         Me.pnlLeftSide.Controls.Add(Me.btnHome)
         Me.pnlLeftSide.Controls.Add(Me.pnl_btnHistory)
@@ -247,7 +249,7 @@ Partial Class frmOrdering_Type
         Me.btnHome.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHome.Location = New System.Drawing.Point(0, 103)
         Me.btnHome.Name = "btnHome"
-        Me.btnHome.Size = New System.Drawing.Size(144, 46)
+        Me.btnHome.Size = New System.Drawing.Size(144, 45)
         Me.btnHome.TabIndex = 45
         Me.btnHome.Text = "HOME"
         Me.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -299,9 +301,9 @@ Partial Class frmOrdering_Type
         Me.btnHistory.FlatAppearance.BorderSize = 0
         Me.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHistory.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHistory.Location = New System.Drawing.Point(0, 334)
+        Me.btnHistory.Location = New System.Drawing.Point(0, 331)
         Me.btnHistory.Name = "btnHistory"
-        Me.btnHistory.Size = New System.Drawing.Size(144, 46)
+        Me.btnHistory.Size = New System.Drawing.Size(144, 45)
         Me.btnHistory.TabIndex = 43
         Me.btnHistory.Text = "HISTORY"
         Me.btnHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -313,9 +315,9 @@ Partial Class frmOrdering_Type
         Me.btnDineIn.FlatAppearance.BorderSize = 0
         Me.btnDineIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDineIn.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDineIn.Location = New System.Drawing.Point(0, 180)
+        Me.btnDineIn.Location = New System.Drawing.Point(0, 179)
         Me.btnDineIn.Name = "btnDineIn"
-        Me.btnDineIn.Size = New System.Drawing.Size(144, 46)
+        Me.btnDineIn.Size = New System.Drawing.Size(144, 45)
         Me.btnDineIn.TabIndex = 42
         Me.btnDineIn.Text = "DINE IN"
         Me.btnDineIn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -327,9 +329,9 @@ Partial Class frmOrdering_Type
         Me.btnTakeOut.FlatAppearance.BorderSize = 0
         Me.btnTakeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnTakeOut.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTakeOut.Location = New System.Drawing.Point(0, 257)
+        Me.btnTakeOut.Location = New System.Drawing.Point(0, 255)
         Me.btnTakeOut.Name = "btnTakeOut"
-        Me.btnTakeOut.Size = New System.Drawing.Size(144, 46)
+        Me.btnTakeOut.Size = New System.Drawing.Size(144, 45)
         Me.btnTakeOut.TabIndex = 40
         Me.btnTakeOut.Text = "TAKE OUT"
         Me.btnTakeOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -465,7 +467,6 @@ Partial Class frmOrdering_Type
         Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
         Me.pnlTitle.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
         Me.pnlTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pnlTitle.Controls.Add(Me.btnExit)
         Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
         Me.pnlTitle.Name = "pnlTitle"
@@ -474,16 +475,27 @@ Partial Class frmOrdering_Type
         '
         'btnExit
         '
-        Me.btnExit.BackColor = System.Drawing.Color.Firebrick
-        Me.btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
-        Me.btnExit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnExit.Location = New System.Drawing.Point(1027, 45)
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.ForeColor = System.Drawing.Color.Firebrick
+        Me.btnExit.Location = New System.Drawing.Point(0, 407)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(100, 45)
+        Me.btnExit.Size = New System.Drawing.Size(144, 45)
         Me.btnExit.TabIndex = 18
         Me.btnExit.Text = "EXIT"
         Me.btnExit.UseVisualStyleBackColor = False
+        '
+        'pnl_btnExit
+        '
+        Me.pnl_btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnl_btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
+        Me.pnl_btnExit.Location = New System.Drawing.Point(0, 407)
+        Me.pnl_btnExit.Name = "pnl_btnExit"
+        Me.pnl_btnExit.Size = New System.Drawing.Size(10, 46)
+        Me.pnl_btnExit.TabIndex = 48
         '
         'frmOrdering_Type
         '
@@ -503,7 +515,6 @@ Partial Class frmOrdering_Type
         Me.pnlLeftSide.PerformLayout()
         Me.pnlTakeOut.ResumeLayout(False)
         Me.pnlTakeOut.PerformLayout()
-        Me.pnlTitle.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -544,4 +555,5 @@ Partial Class frmOrdering_Type
     Friend WithEvents pnl_btnHome As Panel
     Friend WithEvents btnHome As Button
     Friend WithEvents pnlHome As Panel
+    Friend WithEvents pnl_btnExit As Panel
 End Class
