@@ -136,7 +136,7 @@ Partial Class frmOrder_discount
         Me.btnApply.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
         Me.btnApply.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnApply.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnApply.Location = New System.Drawing.Point(150, 111)
+        Me.btnApply.Location = New System.Drawing.Point(34, 108)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(100, 40)
         Me.btnApply.TabIndex = 69
@@ -149,7 +149,7 @@ Partial Class frmOrder_discount
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(259, 111)
+        Me.btnClear.Location = New System.Drawing.Point(201, 108)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 70
@@ -167,9 +167,11 @@ Partial Class frmOrder_discount
         Me.Controls.Add(Me.pnlDiscountInfo)
         Me.Controls.Add(Me.pnlRibbon)
         Me.Controls.Add(Me.pnlButtonGroup)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Name = "frmOrder_discount"
-        Me.Text = "order_discount"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Discount"
         Me.pnlRibbon.ResumeLayout(False)
         Me.pnlRibbon.PerformLayout()
         Me.pnlDiscountInfo.ResumeLayout(False)

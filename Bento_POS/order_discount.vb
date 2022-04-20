@@ -1,11 +1,13 @@
 ﻿Public Class frmOrder_discount
     Private DB As New DBAccess
     Dim dtDiscount As New DataTable
+    Dim rs As New Resizer
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
+        rs.FindAllControls(Me)
     End Sub
 
-    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnApply.Click
+    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
         If lblDiscount.Text = String.Empty Then
             MessageBox.Show("Please select one discount to proceed")
         Else
@@ -34,7 +36,7 @@
 
                 btnDiscountGroup.Text = row("description")
                 btnDiscountGroup.Size = New Size(120, 36)
-                btnDiscountGroup.Font = New System.Drawing.Font("Calibri", 11)
+                btnDiscountGroup.Font = New System.Drawing.Font("Calibri", 11, FontStyle.Bold)
                 btnDiscountGroup.BackColor = ColorTranslator.FromWin32(RGB(244, 196, 108))
                 pnlButtonGroup.Controls.Add(btnDiscountGroup)
             Next
@@ -76,5 +78,9 @@
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         lblDiscount.Text = String.Empty
         lblDescription.Text = String.Empty
+    End Sub
+
+    Private Sub frmOrder_discount_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        rs.ResizeAllControls(Me)
     End Sub
 End Class

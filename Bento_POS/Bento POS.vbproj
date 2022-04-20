@@ -131,6 +131,7 @@
     <Compile Include="Order_Discount.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Resizer.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomerForm.resx">
