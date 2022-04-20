@@ -1,19 +1,40 @@
-﻿Public Class frmOrdering_Type
+﻿Imports System.Text.RegularExpressions
+Public Class frmOrdering_Type
     Private DB As New DBAccess
     Dim rs As New Resizer
 
     '*********************************************Left Panel*********************************************************'
     Sub TableNumber(Sender As Object)
         Dim strTableNumber As String = Sender.text
-        Dim frmOrdering As New frmOrdering
+        Dim frmOrderPage As New frmOrdering
+        Dim intCustomerID As Integer
+        Dim intInteger As Integer
 
-        frmOrdering.lblTableNo.Text = Sender.text
-        frmOrdering.ShowDialog()
+        intCustomerID = InputBox("Please Enter Customer ID in Below", "YumYum Bento - Dine in")
+        If Not Integer.TryParse(txtCustomerID.Text, intInteger) = True Then
+            frmOrderPage.lblOrderType.Text = Sender.text
+            frmOrderPage.lblCustomerID.Text = ("Customer ID " & intCustomerID)
+            frmOrderPage.ShowDialog()
+        Else
+            MsgBox("You provided an invalid value",
+                   MsgBoxStyle.OkOnly Or MsgBoxStyle.Information,
+                   "YumYum Bento - Dine in")
+        End If
+
+
+
+        If intCustomerID Then
+            If ExistingCustomer() = True Then
+                frmOrderPage.lblOrderType.Text = Sender.text
+                frmOrderPage.lblCustomerID.Text = ("Customer ID " & intCustomerID)
+                frmOrderPage.ShowDialog()
+            End If
+        End If
+
+
+
     End Sub
 
-    Sub pnlDinein_load()
-
-    End Sub
     Private Sub btnDineIn_Click(sender As Object, e As EventArgs) Handles btnDineIn.Click
         pnl_btnDineIn.Height = btnDineIn.Height
         pnl_btnDineIn.Top = btnDineIn.Top
@@ -42,29 +63,32 @@
         SearchOpenTOGO("0pen", "to go")
     End Sub
 
-
-
     '*********************************************Take Out Panel *********************************************************'
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
+    '#######################validation part needed to be add in here#####################################'
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         Dim frmOrdering As New frmOrdering
 
-        If txtFirstName.Text = String.Empty Then
-            MessageBox.Show("First Name is required")
-            txtFirstName.Focus()
-        Else
-            frmOrdering.lblTableNo.Text = txtFirstName.Text
-            frmOrdering.ShowDialog()
+        If ValidationCustomerInfo() = True Then
+            If ExistingCustomer() = True Then
+                frmOrdering.lblFirstName.Text = txtFirstName.Text
+                frmOrdering.lblOrderType.Text = "TO GO"
+                frmOrdering.lblCustomerID.Text = ("Customer ID " & txtCustomerID.Text)
+                frmOrdering.ShowDialog()
+            End If
         End If
-    End Sub
 
+
+    End Sub
+    '#######################validation part needed to be add in here#####################################'
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtFirstName.Clear()
         txtLastName.Clear()
         txtPhone.Clear()
+        txtCustomerID.Clear()
     End Sub
 
     Private Sub frmOrdering_Type_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -85,4 +109,50 @@
     Private Sub frmOrdering_Type_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
     End Sub
+
+    Private Function ValidationCustomerInfo() As Boolean
+        '---------------------------------validate for txtCustomerID--------------------------------------------------'
+        Dim intInteger As Integer
+        If String.IsNullOrWhiteSpace(txtCustomerID.Text) = False Then
+            If Not Integer.TryParse(txtCustomerID.Text, intInteger) = True Then
+                MessageBox.Show("Customer ID must be integer")
+                txtCustomerID.SelectAll()
+                txtCustomerID.Focus()
+                Return False
+            End If
+        Else
+            MessageBox.Show("Customer Id is required.")
+            txtCustomerID.SelectAll()
+            txtCustomerID.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ExistingCustomer() As Boolean
+
+        Dim dtCustomer As New DataTable
+        DB.AddParam("@customer_id", txtCustomerID.Text)
+        DB.ExecuteQuery("SELECT * FROM customer WHERE customer_id = ?")
+
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Function
+        End If
+
+        dtCustomer = DB.DBDataTable
+
+        If DB.RecordCount < 1 Then
+            MessageBox.Show("Customer ID does NOT exists, Please create first")
+            Return False
+        Else
+            For Each rows In dtCustomer.Rows
+                txtFirstName.Text = rows("first_name")
+                txtLastName.Text = rows("last_name")
+                txtPhone.Text = rows("phone")
+            Next
+        End If
+
+        Return True
+    End Function
 End Class

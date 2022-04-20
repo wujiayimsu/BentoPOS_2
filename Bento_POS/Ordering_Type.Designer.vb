@@ -35,6 +35,8 @@ Partial Class frmOrdering_Type
         Me.pnlSofa1 = New System.Windows.Forms.Panel()
         Me.pnlSofa3 = New System.Windows.Forms.Panel()
         Me.pnlLeftSide = New System.Windows.Forms.Panel()
+        Me.pnl_btnExit = New System.Windows.Forms.Panel()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.pnl_btnHome = New System.Windows.Forms.Panel()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.pnl_btnHistory = New System.Windows.Forms.Panel()
@@ -49,16 +51,17 @@ Partial Class frmOrdering_Type
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.txtPhone = New System.Windows.Forms.TextBox()
-        Me.txtLastName = New System.Windows.Forms.TextBox()
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.lblPhone = New System.Windows.Forms.Label()
-        Me.lblLastName = New System.Windows.Forms.Label()
-        Me.lblFirstname = New System.Windows.Forms.Label()
         Me.pnlHome = New System.Windows.Forms.Panel()
         Me.pnlTitle = New System.Windows.Forms.Panel()
-        Me.btnExit = New System.Windows.Forms.Button()
-        Me.pnl_btnExit = New System.Windows.Forms.Panel()
+        Me.lblCustomerID = New System.Windows.Forms.Label()
+        Me.txtCustomerID = New System.Windows.Forms.TextBox()
+        Me.lblStaffID = New System.Windows.Forms.Label()
+        Me.lblPhone = New System.Windows.Forms.Label()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.lblLastName = New System.Windows.Forms.Label()
+        Me.lblFirstname = New System.Windows.Forms.Label()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.pnlDineIn.SuspendLayout()
         Me.pnlLeftSide.SuspendLayout()
         Me.pnlTakeOut.SuspendLayout()
@@ -215,6 +218,7 @@ Partial Class frmOrdering_Type
         'pnlLeftSide
         '
         Me.pnlLeftSide.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.pnlLeftSide.Controls.Add(Me.lblStaffID)
         Me.pnlLeftSide.Controls.Add(Me.pnl_btnExit)
         Me.pnlLeftSide.Controls.Add(Me.btnExit)
         Me.pnlLeftSide.Controls.Add(Me.pnl_btnHome)
@@ -231,6 +235,30 @@ Partial Class frmOrdering_Type
         Me.pnlLeftSide.Name = "pnlLeftSide"
         Me.pnlLeftSide.Size = New System.Drawing.Size(144, 572)
         Me.pnlLeftSide.TabIndex = 34
+        '
+        'pnl_btnExit
+        '
+        Me.pnl_btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnl_btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
+        Me.pnl_btnExit.Location = New System.Drawing.Point(0, 407)
+        Me.pnl_btnExit.Name = "pnl_btnExit"
+        Me.pnl_btnExit.Size = New System.Drawing.Size(10, 46)
+        Me.pnl_btnExit.TabIndex = 48
+        '
+        'btnExit
+        '
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.ForeColor = System.Drawing.Color.Firebrick
+        Me.btnExit.Location = New System.Drawing.Point(0, 407)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(144, 45)
+        Me.btnExit.TabIndex = 18
+        Me.btnExit.Text = "EXIT"
+        Me.btnExit.UseVisualStyleBackColor = False
         '
         'pnl_btnHome
         '
@@ -333,12 +361,14 @@ Partial Class frmOrdering_Type
         Me.btnTakeOut.Name = "btnTakeOut"
         Me.btnTakeOut.Size = New System.Drawing.Size(144, 45)
         Me.btnTakeOut.TabIndex = 40
-        Me.btnTakeOut.Text = "TAKE OUT"
+        Me.btnTakeOut.Text = "TO GO"
         Me.btnTakeOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btnTakeOut.UseVisualStyleBackColor = False
         '
         'pnlTakeOut
         '
+        Me.pnlTakeOut.Controls.Add(Me.txtCustomerID)
+        Me.pnlTakeOut.Controls.Add(Me.lblCustomerID)
         Me.pnlTakeOut.Controls.Add(Me.pnlOpenTakeOut)
         Me.pnlTakeOut.Controls.Add(Me.btnNext)
         Me.pnlTakeOut.Controls.Add(Me.btnBack)
@@ -402,6 +432,63 @@ Partial Class frmOrdering_Type
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
         '
+        'pnlHome
+        '
+        Me.pnlHome.BackgroundImage = Global.ReadSearch.My.Resources.Resources._22a16a9353b20c7a04617a9fb6a2a06
+        Me.pnlHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pnlHome.Location = New System.Drawing.Point(144, 93)
+        Me.pnlHome.Name = "pnlHome"
+        Me.pnlHome.Size = New System.Drawing.Size(1000, 572)
+        Me.pnlHome.TabIndex = 47
+        '
+        'pnlTitle
+        '
+        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
+        Me.pnlTitle.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
+        Me.pnlTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(1140, 93)
+        Me.pnlTitle.TabIndex = 13
+        '
+        'lblCustomerID
+        '
+        Me.lblCustomerID.AutoSize = True
+        Me.lblCustomerID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCustomerID.Location = New System.Drawing.Point(74, 141)
+        Me.lblCustomerID.Name = "lblCustomerID"
+        Me.lblCustomerID.Size = New System.Drawing.Size(92, 19)
+        Me.lblCustomerID.TabIndex = 47
+        Me.lblCustomerID.Text = "Customer ID"
+        '
+        'txtCustomerID
+        '
+        Me.txtCustomerID.Location = New System.Drawing.Point(172, 140)
+        Me.txtCustomerID.Name = "txtCustomerID"
+        Me.txtCustomerID.Size = New System.Drawing.Size(191, 20)
+        Me.txtCustomerID.TabIndex = 48
+        '
+        'lblStaffID
+        '
+        Me.lblStaffID.AutoSize = True
+        Me.lblStaffID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStaffID.Location = New System.Drawing.Point(21, 21)
+        Me.lblStaffID.Name = "lblStaffID"
+        Me.lblStaffID.Size = New System.Drawing.Size(89, 38)
+        Me.lblStaffID.TabIndex = 49
+        Me.lblStaffID.Text = "Staff ID: 3, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   Welcome!"
+        '
+        'lblPhone
+        '
+        Me.lblPhone.AutoSize = True
+        Me.lblPhone.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhone.Location = New System.Drawing.Point(113, 282)
+        Me.lblPhone.Name = "lblPhone"
+        Me.lblPhone.Size = New System.Drawing.Size(53, 19)
+        Me.lblPhone.TabIndex = 2
+        Me.lblPhone.Text = "Phone"
+        '
         'txtPhone
         '
         Me.txtPhone.Location = New System.Drawing.Point(172, 282)
@@ -415,23 +502,6 @@ Partial Class frmOrdering_Type
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(191, 20)
         Me.txtLastName.TabIndex = 4
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.Location = New System.Drawing.Point(172, 186)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(191, 20)
-        Me.txtFirstName.TabIndex = 3
-        '
-        'lblPhone
-        '
-        Me.lblPhone.AutoSize = True
-        Me.lblPhone.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPhone.Location = New System.Drawing.Point(113, 282)
-        Me.lblPhone.Name = "lblPhone"
-        Me.lblPhone.Size = New System.Drawing.Size(53, 19)
-        Me.lblPhone.TabIndex = 2
-        Me.lblPhone.Text = "Phone"
         '
         'lblLastName
         '
@@ -453,49 +523,12 @@ Partial Class frmOrdering_Type
         Me.lblFirstname.TabIndex = 0
         Me.lblFirstname.Text = "First Name"
         '
-        'pnlHome
+        'txtFirstName
         '
-        Me.pnlHome.BackgroundImage = Global.ReadSearch.My.Resources.Resources._22a16a9353b20c7a04617a9fb6a2a06
-        Me.pnlHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pnlHome.Location = New System.Drawing.Point(144, 93)
-        Me.pnlHome.Name = "pnlHome"
-        Me.pnlHome.Size = New System.Drawing.Size(1000, 572)
-        Me.pnlHome.TabIndex = 47
-        '
-        'pnlTitle
-        '
-        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
-        Me.pnlTitle.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
-        Me.pnlTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
-        Me.pnlTitle.Name = "pnlTitle"
-        Me.pnlTitle.Size = New System.Drawing.Size(1140, 93)
-        Me.pnlTitle.TabIndex = 13
-        '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
-        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnExit.FlatAppearance.BorderSize = 0
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.ForeColor = System.Drawing.Color.Firebrick
-        Me.btnExit.Location = New System.Drawing.Point(0, 407)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(144, 45)
-        Me.btnExit.TabIndex = 18
-        Me.btnExit.Text = "EXIT"
-        Me.btnExit.UseVisualStyleBackColor = False
-        '
-        'pnl_btnExit
-        '
-        Me.pnl_btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
-        Me.pnl_btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
-        Me.pnl_btnExit.Location = New System.Drawing.Point(0, 407)
-        Me.pnl_btnExit.Name = "pnl_btnExit"
-        Me.pnl_btnExit.Size = New System.Drawing.Size(10, 46)
-        Me.pnl_btnExit.TabIndex = 48
+        Me.txtFirstName.Location = New System.Drawing.Point(172, 186)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(191, 20)
+        Me.txtFirstName.TabIndex = 3
         '
         'frmOrdering_Type
         '
@@ -539,12 +572,6 @@ Partial Class frmOrdering_Type
     Friend WithEvents pnl_btnDineIn As Panel
     Friend WithEvents btnDineIn As Button
     Friend WithEvents pnlTakeOut As Panel
-    Friend WithEvents lblFirstname As Label
-    Friend WithEvents txtPhone As TextBox
-    Friend WithEvents txtLastName As TextBox
-    Friend WithEvents txtFirstName As TextBox
-    Friend WithEvents lblPhone As Label
-    Friend WithEvents lblLastName As Label
     Friend WithEvents btnClear As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnBack As Button
@@ -556,4 +583,13 @@ Partial Class frmOrdering_Type
     Friend WithEvents btnHome As Button
     Friend WithEvents pnlHome As Panel
     Friend WithEvents pnl_btnExit As Panel
+    Friend WithEvents txtCustomerID As TextBox
+    Friend WithEvents lblCustomerID As Label
+    Friend WithEvents lblStaffID As Label
+    Friend WithEvents txtPhone As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents lblPhone As Label
+    Friend WithEvents lblLastName As Label
+    Friend WithEvents lblFirstname As Label
 End Class
