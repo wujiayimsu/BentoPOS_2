@@ -352,10 +352,13 @@ Public Class frmOrdering
     '*********************************************  OTHER FUNCTIONS   *********************************************************'
 
     Sub SelectedAll()
-        Dim intSelect As Integer = lstOrderItem.SelectedIndex
-        lstPrice.SelectedIndex = intSelect
-        lstQuantity.SelectedIndex = intSelect
-        lstItemID.SelectedIndex = intSelect
+        If lstOrderItem.SelectedIndex > -1 Then
+            Dim intSelect As Integer = lstOrderItem.SelectedIndex
+            lstPrice.SelectedIndex = intSelect
+            lstQuantity.SelectedIndex = intSelect
+            lstItemID.SelectedIndex = intSelect
+        End If
+
 
     End Sub
 

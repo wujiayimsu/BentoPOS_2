@@ -22,6 +22,7 @@ Partial Class frmOrdering_Type
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlDineIn = New System.Windows.Forms.Panel()
         Me.btnTable7 = New System.Windows.Forms.Button()
         Me.btnTable8 = New System.Windows.Forms.Button()
@@ -39,12 +40,12 @@ Partial Class frmOrdering_Type
         Me.pnl_btnExit = New System.Windows.Forms.Panel()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.pnl_btnHistory = New System.Windows.Forms.Panel()
-        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnl__btnTakeOut = New System.Windows.Forms.Panel()
         Me.pnl_btnDineIn = New System.Windows.Forms.Panel()
         Me.btnHistory = New System.Windows.Forms.Button()
         Me.btnDineIn = New System.Windows.Forms.Button()
         Me.btnTakeOut = New System.Windows.Forms.Button()
+        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlTakeOut = New System.Windows.Forms.Panel()
         Me.lblOrderID = New System.Windows.Forms.Label()
         Me.txtCustomerID = New System.Windows.Forms.TextBox()
@@ -279,18 +280,6 @@ Partial Class frmOrdering_Type
         Me.pnl_btnHistory.Size = New System.Drawing.Size(10, 46)
         Me.pnl_btnHistory.TabIndex = 44
         '
-        'lblDeveloper
-        '
-        Me.lblDeveloper.AutoSize = True
-        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
-        Me.lblDeveloper.Location = New System.Drawing.Point(1028, 0)
-        Me.lblDeveloper.Name = "lblDeveloper"
-        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
-        Me.lblDeveloper.TabIndex = 0
-        Me.lblDeveloper.Text = "Jiayi Wu@2022"
-        '
         'pnl__btnTakeOut
         '
         Me.pnl__btnTakeOut.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
@@ -356,6 +345,18 @@ Partial Class frmOrdering_Type
         Me.btnTakeOut.Text = "TO GO"
         Me.btnTakeOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btnTakeOut.UseVisualStyleBackColor = False
+        '
+        'lblDeveloper
+        '
+        Me.lblDeveloper.AutoSize = True
+        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
+        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
+        Me.lblDeveloper.Location = New System.Drawing.Point(1028, 0)
+        Me.lblDeveloper.Name = "lblDeveloper"
+        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
+        Me.lblDeveloper.TabIndex = 0
+        Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
         'pnlTakeOut
         '
@@ -511,7 +512,21 @@ Partial Class frmOrdering_Type
         '
         'dgvHistory
         '
+        Me.dgvHistory.AllowUserToOrderColumns = True
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvHistory.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
+        Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dgvHistory.Location = New System.Drawing.Point(0, 80)
         Me.dgvHistory.Name = "dgvHistory"
         Me.dgvHistory.Size = New System.Drawing.Size(995, 489)

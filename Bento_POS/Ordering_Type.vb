@@ -144,12 +144,17 @@ Public Class frmOrdering_Type
         pnlHistory.Visible = True
 
 
-        DB.ExecuteQuery("select c.order_id, o.item_id, m.item_name, m.price, o.quantity,p.payment_id,p.payment_method,p.amount_paid,c.order_date,c.order_time
+        DB.ExecuteQuery("select c.order_id as 'Order ID', c.customer_id as 'Customer ID', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date',c.order_time as 'Order Time'
 from customer_order as c
 left join order_item as o on c.order_id = o.order_id
 left join menu as m on o.item_id = m.item_id
 left join payment as p on p.order_id = c.order_id
 order by c.order_id asc")
+
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
 
         dgvHistory.DataSource = DB.DBDataTable
 

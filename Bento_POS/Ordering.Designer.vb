@@ -61,7 +61,6 @@ Partial Class frmOrdering
         Me.lblCustomerID = New System.Windows.Forms.Label()
         Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.lblOrderType = New System.Windows.Forms.Label()
-        Me.btnReceipt = New System.Windows.Forms.Button()
         Me.lblPaymentMeth = New System.Windows.Forms.Label()
         Me.lblSplit = New System.Windows.Forms.Label()
         Me.lblSplitAmt = New System.Windows.Forms.Label()
@@ -87,7 +86,8 @@ Partial Class frmOrdering
         '
         'pnlMenuItem
         '
-        Me.pnlMenuItem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlMenuItem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMenuItem.BackColor = System.Drawing.Color.Transparent
         Me.pnlMenuItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -450,33 +450,33 @@ Partial Class frmOrdering
         'lblOrderID
         '
         Me.lblOrderID.AutoSize = True
-        Me.lblOrderID.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrderID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOrderID.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblOrderID.Location = New System.Drawing.Point(3, 34)
         Me.lblOrderID.Name = "lblOrderID"
-        Me.lblOrderID.Size = New System.Drawing.Size(78, 23)
+        Me.lblOrderID.Size = New System.Drawing.Size(67, 19)
         Me.lblOrderID.TabIndex = 55
         Me.lblOrderID.Text = "Order ID"
         '
         'lblFirstName
         '
         Me.lblFirstName.AutoSize = True
-        Me.lblFirstName.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFirstName.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFirstName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblFirstName.Location = New System.Drawing.Point(131, 9)
+        Me.lblFirstName.Location = New System.Drawing.Point(101, 9)
         Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(57, 23)
+        Me.lblFirstName.Size = New System.Drawing.Size(49, 19)
         Me.lblFirstName.TabIndex = 54
         Me.lblFirstName.Text = "Name"
         '
         'lblCustomerID
         '
         Me.lblCustomerID.AutoSize = True
-        Me.lblCustomerID.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCustomerID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCustomerID.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblCustomerID.Location = New System.Drawing.Point(3, 9)
         Me.lblCustomerID.Name = "lblCustomerID"
-        Me.lblCustomerID.Size = New System.Drawing.Size(108, 23)
+        Me.lblCustomerID.Size = New System.Drawing.Size(92, 19)
         Me.lblCustomerID.TabIndex = 53
         Me.lblCustomerID.Text = "Customer ID"
         '
@@ -494,26 +494,13 @@ Partial Class frmOrdering
         'lblOrderType
         '
         Me.lblOrderType.AutoSize = True
-        Me.lblOrderType.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrderType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOrderType.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblOrderType.Location = New System.Drawing.Point(3, 59)
         Me.lblOrderType.Name = "lblOrderType"
-        Me.lblOrderType.Size = New System.Drawing.Size(84, 23)
+        Me.lblOrderType.Size = New System.Drawing.Size(73, 19)
         Me.lblOrderType.TabIndex = 50
         Me.lblOrderType.Text = "Table No."
-        '
-        'btnReceipt
-        '
-        Me.btnReceipt.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnReceipt.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
-        Me.btnReceipt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReceipt.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnReceipt.Location = New System.Drawing.Point(797, 104)
-        Me.btnReceipt.Name = "btnReceipt"
-        Me.btnReceipt.Size = New System.Drawing.Size(100, 40)
-        Me.btnReceipt.TabIndex = 14
-        Me.btnReceipt.Text = "RECEIPT"
-        Me.btnReceipt.UseVisualStyleBackColor = False
         '
         'lblPaymentMeth
         '
@@ -560,7 +547,6 @@ Partial Class frmOrdering
         Me.Controls.Add(Me.lblPaymentMeth)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblDiscountRateInfo)
-        Me.Controls.Add(Me.btnReceipt)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label3)
@@ -608,7 +594,6 @@ Partial Class frmOrdering
     Friend WithEvents pnlMenuCategory As FlowLayoutPanel
     Friend WithEvents pnlRibbon As Panel
     Friend WithEvents btnPay As Button
-    Friend WithEvents btnReceipt As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnRemoveItem As Button

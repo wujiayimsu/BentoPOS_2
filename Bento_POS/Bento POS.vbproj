@@ -88,13 +88,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CustomerForm.Designer.vb">
-      <DependentUpon>CustomerForm.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DBAccess.vb" />
     <Compile Include="Order_Payment.Designer.vb">
       <DependentUpon>Order_Payment.vb</DependentUpon>
@@ -140,9 +133,6 @@
     <Compile Include="Resizer.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomerForm.resx">
-      <DependentUpon>CustomerForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ordering_Type.resx">
       <DependentUpon>Ordering_Type.vb</DependentUpon>
     </EmbeddedResource>
