@@ -5,6 +5,8 @@ Public Class frmOrdering
     Dim intOrderID As Integer
     Dim dtOrderItem As New DataTable
 
+
+
     Private Sub frmOdering_Load(sender As Object, e As EventArgs) Handles Me.Load
         CreatebtnFoodCategory()
         UpdatelblOrderID()
@@ -114,7 +116,6 @@ Public Class frmOrdering
         Total()
     End Sub
 
-
     Sub ItemCount()
         Dim Sum As Integer
         Dim i As Integer
@@ -131,8 +132,8 @@ Public Class frmOrdering
     End Sub
     Sub SubtotalDisplay()
         Dim LineTotal As Double = 0.00
-        Dim dblSubTotal As Double = 0.00
         Dim i As Integer
+        Dim dblSubTotal As Double = 0.00
 
         For i = 0 To lstOrderItem.Items.Count - 1
             If lstOrderItem.Items(i) = strline Then
@@ -147,11 +148,15 @@ Public Class frmOrdering
     End Sub
     Sub tax()
         Dim dblTaxRate As Decimal = 0.06
-        lblTax.Text = (CDbl(lblSubTotal.Text) * dblTaxRate).ToString("N2")
+        Dim decTax As Decimal
 
+
+        lblTax.Text = (CDbl(lblSubTotal.Text) * dblTaxRate).ToString("N2")
+        decTax = CDec(lblTax.Text)
     End Sub
     Sub Total()
         Dim decTotal As Decimal
+
         decTotal = CDec(lblSubTotal.Text) + CDec(lblTax.Text) + CDec(lblDiscAmt.Text)
         lblTotal.Text = decTotal.ToString("N2")
 
@@ -174,10 +179,12 @@ Public Class frmOrdering
 
     End Sub
 
-    Private Sub UpdatelblOrderID()
+    Public Sub UpdatelblOrderID()
         DB.ExecuteQuery("SELECT order_id FROM customer_order ORDER BY order_id DESC")
         intOrderID = DB.RecordCount + 1
         lblOrderID.Text = ("Order ID " & intOrderID.ToString)
+        frmOrdering_Type.lblOrderID.Text = ("Order ID    " & intOrderID.ToString)
+
 
     End Sub
 
@@ -247,22 +254,40 @@ Public Class frmOrdering
     End Sub
 
     Private Sub btnPay_Click(sender As Object, e As EventArgs) Handles btnPay.Click
+
         If CDec(lblTotal.Text) = 0 Then
             MessageBox.Show("No Item was selected")
+
         Else
-            InsertCustomerOrder()
-            InsertOrderItem()
-            btnClear.PerformClick()
-            btnExit.PerformClick()
+            If strPayMethod = String.Empty Then
+                Dim frmPay As New Order_Payment
+                frmPay.ShowDialog()
+                ButtomFiguresDisplay()
+                lblPaymentMeth.Text = strPayMethod
+            Else
+                InsertCustomerOrder()
+                InsertOrderItem()
+                lblPaymentMeth.Text = strPayMethod
+                InsertPayment()
+                MessageBox.Show("Order Complete!")
+                btnClear.PerformClick()
+                btnExit.PerformClick()
+            End If
         End If
+
     End Sub
 
 
     '************************************************** INSERT INTO SQL  ***********************************************************'
-    Private Sub InsertCustomerOrder()
+    Public Sub InsertCustomerOrder()
         Dim strComplete As String = "complete"
 
-        DB.AddParam("@customer_id", frmOrdering_Type.txtCustomerID.Text)
+        If String.IsNullOrEmpty(frmOrdering_Type.txtCustomerID.Text) Then
+            DB.AddParam("@customer_id", DBNull.Value)
+        Else
+            DB.AddParam("@customer_id", frmOrdering_Type.txtCustomerID.Text)
+        End If
+
         DB.AddParam("@staff_id", "3")
         DB.AddParam("@order_status", strComplete)
         DB.AddParam("@order_type", lblOrderType.Text)
@@ -272,8 +297,10 @@ Public Class frmOrdering
             MessageBox.Show(DB.DBException)
             Exit Sub
         End If
+
+        MessageBox.Show("customer order table inserted")
     End Sub
-    Private Sub InsertOrderItem()
+    Public Sub InsertOrderItem()
 
         For item = 0 To lstItemID.Items.Count - 1
 
@@ -287,12 +314,33 @@ Public Class frmOrdering
                 Exit Sub
             End If
         Next
+        MessageBox.Show("order item table inserted")
 
-        MessageBox.Show(" Order Complete! ")
     End Sub
 
-    Private Sub InsertPayment()
+    Public Sub InsertPayment()
+        DB.AddParam("order_id", intOrderID)
+        DB.AddParam("total_price", CDec(lblTotal.Text))
+        DB.AddParam("tax", CDec(lblTax.Text))
 
+        If CDec(lblDiscAmt.Text) <= 0 Then
+            DB.AddParam("@discount_id", DBNull.Value)
+            DB.AddParam("@discounted_total", "0.00")
+        Else
+            DB.AddParam("@discount_id", frmOrder_discount.intDiscountID)
+            DB.AddParam("@discounted_total", CDec(lblDiscAmt.Text))
+        End If
+
+        DB.AddParam("@amount_paid", CDec(lblTotal.Text))
+        DB.AddParam("payment_method", lblPaymentMeth.Text)
+
+        DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES(?,?,?,?,?,?,?,?,?)")
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
+
+        MessageBox.Show("payment table inserted")
     End Sub
 
 

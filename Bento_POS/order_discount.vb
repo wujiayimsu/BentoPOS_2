@@ -2,6 +2,7 @@
     Private DB As New DBAccess
     Dim dtDiscount As New DataTable
     Dim rs As New Resizer
+    Public intDiscountID As Integer
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
         rs.FindAllControls(Me)
@@ -63,6 +64,7 @@
             For Each row In dtDiscount.Rows
                 strDiscount = row("discount")
                 lblDiscount.Text = strDiscount
+                intDiscountID = row("discount_id")
             Next
             lblDescription.Text = strDescription
         Catch ex As Exception

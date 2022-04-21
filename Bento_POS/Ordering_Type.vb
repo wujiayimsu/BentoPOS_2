@@ -7,29 +7,11 @@ Public Class frmOrdering_Type
     Sub TableNumber(Sender As Object)
         Dim strTableNumber As String = Sender.text
         Dim frmOrderPage As New frmOrdering
-        Dim intCustomerID As Integer
-        Dim intInteger As Integer
 
-        intCustomerID = InputBox("Please Enter Customer ID in Below", "YumYum Bento - Dine in")
-        If Not Integer.TryParse(txtCustomerID.Text, intInteger) = True Then
-            frmOrderPage.lblOrderType.Text = Sender.text
-            frmOrderPage.lblCustomerID.Text = ("Customer ID " & intCustomerID)
-            frmOrderPage.ShowDialog()
-        Else
-            MsgBox("You provided an invalid value",
-                   MsgBoxStyle.OkOnly Or MsgBoxStyle.Information,
-                   "YumYum Bento - Dine in")
-        End If
-
-
-
-        If intCustomerID Then
-            If ExistingCustomer() = True Then
-                frmOrderPage.lblOrderType.Text = Sender.text
-                frmOrderPage.lblCustomerID.Text = ("Customer ID " & intCustomerID)
-                frmOrderPage.ShowDialog()
-            End If
-        End If
+        frmOrderPage.lblOrderType.Text = Sender.text
+        frmOrderPage.lblCustomerID.Text = String.Empty
+        frmOrdering.lblFirstName.Text = String.Empty
+        frmOrderPage.ShowDialog()
 
 
 
@@ -40,7 +22,6 @@ Public Class frmOrdering_Type
         pnl_btnDineIn.Top = btnDineIn.Top
         pnlDineIn.Visible = True
         pnlTakeOut.Visible = False
-        pnlHome.Visible = False
 
 
         AddHandler btnTable1.Click, Sub() TableNumber(btnTable1)
@@ -58,7 +39,8 @@ Public Class frmOrdering_Type
         pnl__btnTakeOut.Top = btnTakeOut.Top
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = True
-        pnlHome.Visible = False
+
+        frmOrdering.UpdatelblOrderID()
 
         SearchOpenTOGO("0pen", "to go")
     End Sub
@@ -92,7 +74,6 @@ Public Class frmOrdering_Type
     End Sub
 
     Private Sub frmOrdering_Type_Load(sender As Object, e As EventArgs) Handles Me.Load
-        pnlHome.Visible = True
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = False
 
@@ -100,11 +81,6 @@ Public Class frmOrdering_Type
 
     End Sub
 
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        pnlHome.Visible = True
-        pnlDineIn.Visible = False
-        pnlTakeOut.Visible = False
-    End Sub
 
     Private Sub frmOrdering_Type_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
@@ -113,19 +89,20 @@ Public Class frmOrdering_Type
     Private Function ValidationCustomerInfo() As Boolean
         '---------------------------------validate for txtCustomerID--------------------------------------------------'
         Dim intInteger As Integer
-        If String.IsNullOrWhiteSpace(txtCustomerID.Text) = False Then
-            If Not Integer.TryParse(txtCustomerID.Text, intInteger) = True Then
-                MessageBox.Show("Customer ID must be integer")
+
+        If String.IsNullOrEmpty(txtCustomerID.Text) = True Then
+            'do nothing
+        Else
+            If Integer.TryParse(txtCustomerID.Text, intInteger) = False Then
+                MessageBox.Show("Customer ID Must be Integer")
                 txtCustomerID.SelectAll()
                 txtCustomerID.Focus()
                 Return False
+            Else
+                'do nothing
             End If
-        Else
-            MessageBox.Show("Customer Id is required.")
-            txtCustomerID.SelectAll()
-            txtCustomerID.Focus()
-            Return False
         End If
+
         Return True
     End Function
 
@@ -143,8 +120,8 @@ Public Class frmOrdering_Type
         dtCustomer = DB.DBDataTable
 
         If DB.RecordCount < 1 Then
-            MessageBox.Show("Customer ID does NOT exists, Please create first")
-            Return False
+            'do nothing
+
         Else
             For Each rows In dtCustomer.Rows
                 txtFirstName.Text = rows("first_name")

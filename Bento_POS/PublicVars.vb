@@ -3,6 +3,7 @@
     Public strline As String = ("-----------------------------------------------------------------")
     Public decDiscountRate As Decimal
     Public dtLoadOrder As New DataTable
+    Public strPayMethod As String
 
     Public Sub SearchOpenTOGO(strStatus As String, strType As String)
         frmOrdering_Type.pnlOpenTakeOut.Controls.Clear()
