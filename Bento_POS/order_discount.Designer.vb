@@ -23,18 +23,18 @@ Partial Class frmOrder_discount
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlButtonGroup = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pnlRibbon = New System.Windows.Forms.Panel()
-        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlDiscountInfo = New System.Windows.Forms.Panel()
         Me.lblDescription = New System.Windows.Forms.Label()
         Me.lblDiscount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnApply = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.pnlRibbon.SuspendLayout()
+        Me.pnlRibbon = New System.Windows.Forms.Panel()
+        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlDiscountInfo.SuspendLayout()
+        Me.pnlRibbon.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlButtonGroup
@@ -43,30 +43,6 @@ Partial Class frmOrder_discount
         Me.pnlButtonGroup.Name = "pnlButtonGroup"
         Me.pnlButtonGroup.Size = New System.Drawing.Size(444, 119)
         Me.pnlButtonGroup.TabIndex = 0
-        '
-        'pnlRibbon
-        '
-        Me.pnlRibbon.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
-        Me.pnlRibbon.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_logo
-        Me.pnlRibbon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pnlRibbon.Controls.Add(Me.lblDeveloper)
-        Me.pnlRibbon.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlRibbon.Location = New System.Drawing.Point(0, 0)
-        Me.pnlRibbon.Name = "pnlRibbon"
-        Me.pnlRibbon.Size = New System.Drawing.Size(510, 100)
-        Me.pnlRibbon.TabIndex = 1
-        '
-        'lblDeveloper
-        '
-        Me.lblDeveloper.AutoSize = True
-        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
-        Me.lblDeveloper.Location = New System.Drawing.Point(398, 0)
-        Me.lblDeveloper.Name = "lblDeveloper"
-        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
-        Me.lblDeveloper.TabIndex = 52
-        Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
         'pnlDiscountInfo
         '
@@ -117,6 +93,19 @@ Partial Class frmOrder_discount
         Me.Label1.TabIndex = 57
         Me.Label1.Text = "Discount : "
         '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
+        Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.White
+        Me.btnClear.Location = New System.Drawing.Point(201, 108)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(110, 40)
+        Me.btnClear.TabIndex = 70
+        Me.btnClear.Text = "CLEAR"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
         'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.Color.Firebrick
@@ -143,18 +132,29 @@ Partial Class frmOrder_discount
         Me.btnApply.Text = "APPLY"
         Me.btnApply.UseVisualStyleBackColor = False
         '
-        'btnClear
+        'pnlRibbon
         '
-        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(201, 108)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(110, 40)
-        Me.btnClear.TabIndex = 70
-        Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = False
+        Me.pnlRibbon.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
+        Me.pnlRibbon.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_logo
+        Me.pnlRibbon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pnlRibbon.Controls.Add(Me.lblDeveloper)
+        Me.pnlRibbon.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlRibbon.Location = New System.Drawing.Point(0, 0)
+        Me.pnlRibbon.Name = "pnlRibbon"
+        Me.pnlRibbon.Size = New System.Drawing.Size(510, 100)
+        Me.pnlRibbon.TabIndex = 1
+        '
+        'lblDeveloper
+        '
+        Me.lblDeveloper.AutoSize = True
+        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
+        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
+        Me.lblDeveloper.Location = New System.Drawing.Point(398, 0)
+        Me.lblDeveloper.Name = "lblDeveloper"
+        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
+        Me.lblDeveloper.TabIndex = 52
+        Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
         'frmOrder_discount
         '
@@ -172,10 +172,10 @@ Partial Class frmOrder_discount
         Me.Name = "frmOrder_discount"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Discount"
-        Me.pnlRibbon.ResumeLayout(False)
-        Me.pnlRibbon.PerformLayout()
         Me.pnlDiscountInfo.ResumeLayout(False)
         Me.pnlDiscountInfo.PerformLayout()
+        Me.pnlRibbon.ResumeLayout(False)
+        Me.pnlRibbon.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
