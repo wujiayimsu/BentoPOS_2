@@ -12,6 +12,9 @@ Public Class frmOrdering
         UpdatelblOrderID()
         ButtomFiguresDisplay()
         rs.FindAllControls(Me)
+
+        lblSplit.Text = String.Empty
+        lblSplitAmt.Text = String.Empty
     End Sub
 
     '*********************************************Add buttons for pnlMenuCategory*********************************************************'

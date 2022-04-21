@@ -61,10 +61,10 @@ Partial Class frmOrdering
         Me.lblCustomerID = New System.Windows.Forms.Label()
         Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.lblOrderType = New System.Windows.Forms.Label()
-        Me.btnSplitItem = New System.Windows.Forms.Button()
         Me.btnReceipt = New System.Windows.Forms.Button()
-        Me.btnSplitBill = New System.Windows.Forms.Button()
         Me.lblPaymentMeth = New System.Windows.Forms.Label()
+        Me.lblSplit = New System.Windows.Forms.Label()
+        Me.lblSplitAmt = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.pnlOrderItem.SuspendLayout()
         Me.pnlRibbon.SuspendLayout()
@@ -73,7 +73,7 @@ Partial Class frmOrdering
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateTimeUserStrip})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 692)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 728)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1139, 22)
         Me.StatusStrip1.TabIndex = 8
@@ -87,8 +87,7 @@ Partial Class frmOrdering
         '
         'pnlMenuItem
         '
-        Me.pnlMenuItem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlMenuItem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMenuItem.BackColor = System.Drawing.Color.Transparent
         Me.pnlMenuItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -322,7 +321,7 @@ Partial Class frmOrdering
         Me.btnDuplicate.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnDuplicate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDuplicate.ForeColor = System.Drawing.Color.Black
-        Me.btnDuplicate.Location = New System.Drawing.Point(477, 396)
+        Me.btnDuplicate.Location = New System.Drawing.Point(477, 165)
         Me.btnDuplicate.Name = "btnDuplicate"
         Me.btnDuplicate.Size = New System.Drawing.Size(110, 40)
         Me.btnDuplicate.TabIndex = 41
@@ -335,7 +334,7 @@ Partial Class frmOrdering
         Me.btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
         Me.btnExit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnExit.Location = New System.Drawing.Point(1020, 99)
+        Me.btnExit.Location = New System.Drawing.Point(1019, 99)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(100, 45)
         Me.btnExit.TabIndex = 15
@@ -348,7 +347,7 @@ Partial Class frmOrdering
         Me.btnPay.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
         Me.btnPay.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPay.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnPay.Location = New System.Drawing.Point(903, 104)
+        Me.btnPay.Location = New System.Drawing.Point(908, 104)
         Me.btnPay.Name = "btnPay"
         Me.btnPay.Size = New System.Drawing.Size(100, 40)
         Me.btnPay.TabIndex = 13
@@ -361,7 +360,7 @@ Partial Class frmOrdering
         Me.btnSplitEqual.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitEqual.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitEqual.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 155)
+        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 552)
         Me.btnSplitEqual.Name = "btnSplitEqual"
         Me.btnSplitEqual.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitEqual.TabIndex = 30
@@ -374,7 +373,7 @@ Partial Class frmOrdering
         Me.btnLine.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnLine.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLine.ForeColor = System.Drawing.Color.Black
-        Me.btnLine.Location = New System.Drawing.Point(477, 561)
+        Me.btnLine.Location = New System.Drawing.Point(477, 330)
         Me.btnLine.Name = "btnLine"
         Me.btnLine.Size = New System.Drawing.Size(110, 40)
         Me.btnLine.TabIndex = 28
@@ -387,7 +386,7 @@ Partial Class frmOrdering
         Me.btnNote.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNote.ForeColor = System.Drawing.Color.Black
-        Me.btnNote.Location = New System.Drawing.Point(477, 506)
+        Me.btnNote.Location = New System.Drawing.Point(477, 275)
         Me.btnNote.Name = "btnNote"
         Me.btnNote.Size = New System.Drawing.Size(110, 40)
         Me.btnNote.TabIndex = 27
@@ -400,7 +399,7 @@ Partial Class frmOrdering
         Me.btnDiscount.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDiscount.ForeColor = System.Drawing.Color.Black
-        Me.btnDiscount.Location = New System.Drawing.Point(477, 214)
+        Me.btnDiscount.Location = New System.Drawing.Point(477, 497)
         Me.btnDiscount.Name = "btnDiscount"
         Me.btnDiscount.Size = New System.Drawing.Size(110, 40)
         Me.btnDiscount.TabIndex = 26
@@ -413,7 +412,7 @@ Partial Class frmOrdering
         Me.btnRemoveItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnRemoveItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemoveItem.ForeColor = System.Drawing.Color.Black
-        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 451)
+        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 220)
         Me.btnRemoveItem.Name = "btnRemoveItem"
         Me.btnRemoveItem.Size = New System.Drawing.Size(110, 40)
         Me.btnRemoveItem.TabIndex = 22
@@ -426,7 +425,7 @@ Partial Class frmOrdering
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Location = New System.Drawing.Point(477, 616)
+        Me.btnClear.Location = New System.Drawing.Point(477, 385)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 16
@@ -443,9 +442,6 @@ Partial Class frmOrdering
         Me.pnlRibbon.Controls.Add(Me.lblCustomerID)
         Me.pnlRibbon.Controls.Add(Me.lblDeveloper)
         Me.pnlRibbon.Controls.Add(Me.lblOrderType)
-        Me.pnlRibbon.Controls.Add(Me.btnSplitItem)
-        Me.pnlRibbon.Controls.Add(Me.btnReceipt)
-        Me.pnlRibbon.Controls.Add(Me.btnSplitBill)
         Me.pnlRibbon.Location = New System.Drawing.Point(0, 0)
         Me.pnlRibbon.Name = "pnlRibbon"
         Me.pnlRibbon.Size = New System.Drawing.Size(1139, 93)
@@ -506,55 +502,51 @@ Partial Class frmOrdering
         Me.lblOrderType.TabIndex = 50
         Me.lblOrderType.Text = "Table No."
         '
-        'btnSplitItem
-        '
-        Me.btnSplitItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnSplitItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnSplitItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSplitItem.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitItem.Location = New System.Drawing.Point(981, 34)
-        Me.btnSplitItem.Name = "btnSplitItem"
-        Me.btnSplitItem.Size = New System.Drawing.Size(110, 40)
-        Me.btnSplitItem.TabIndex = 25
-        Me.btnSplitItem.Text = "Split Item"
-        Me.btnSplitItem.UseVisualStyleBackColor = False
-        '
         'btnReceipt
         '
         Me.btnReceipt.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnReceipt.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
         Me.btnReceipt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReceipt.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnReceipt.Location = New System.Drawing.Point(981, 42)
+        Me.btnReceipt.Location = New System.Drawing.Point(797, 104)
         Me.btnReceipt.Name = "btnReceipt"
         Me.btnReceipt.Size = New System.Drawing.Size(100, 40)
         Me.btnReceipt.TabIndex = 14
         Me.btnReceipt.Text = "RECEIPT"
         Me.btnReceipt.UseVisualStyleBackColor = False
         '
-        'btnSplitBill
-        '
-        Me.btnSplitBill.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnSplitBill.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnSplitBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSplitBill.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitBill.Location = New System.Drawing.Point(914, 42)
-        Me.btnSplitBill.Name = "btnSplitBill"
-        Me.btnSplitBill.Size = New System.Drawing.Size(110, 40)
-        Me.btnSplitBill.TabIndex = 17
-        Me.btnSplitBill.Text = "Split Bill"
-        Me.btnSplitBill.UseVisualStyleBackColor = False
-        '
         'lblPaymentMeth
         '
         Me.lblPaymentMeth.AutoSize = True
         Me.lblPaymentMeth.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPaymentMeth.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.lblPaymentMeth.Location = New System.Drawing.Point(220, 664)
+        Me.lblPaymentMeth.Location = New System.Drawing.Point(220, 663)
         Me.lblPaymentMeth.Name = "lblPaymentMeth"
         Me.lblPaymentMeth.Size = New System.Drawing.Size(74, 23)
         Me.lblPaymentMeth.TabIndex = 60
         Me.lblPaymentMeth.Text = "Method"
+        '
+        'lblSplit
+        '
+        Me.lblSplit.AutoSize = True
+        Me.lblSplit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSplit.ForeColor = System.Drawing.Color.Firebrick
+        Me.lblSplit.Location = New System.Drawing.Point(239, 696)
+        Me.lblSplit.Name = "lblSplit"
+        Me.lblSplit.Size = New System.Drawing.Size(135, 19)
+        Me.lblSplit.TabIndex = 61
+        Me.lblSplit.Text = "Split Equally by #: "
+        '
+        'lblSplitAmt
+        '
+        Me.lblSplitAmt.AutoSize = True
+        Me.lblSplitAmt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSplitAmt.ForeColor = System.Drawing.Color.Firebrick
+        Me.lblSplitAmt.Location = New System.Drawing.Point(370, 696)
+        Me.lblSplitAmt.Name = "lblSplitAmt"
+        Me.lblSplitAmt.Size = New System.Drawing.Size(37, 19)
+        Me.lblSplitAmt.TabIndex = 62
+        Me.lblSplitAmt.Text = "0.00"
         '
         'frmOrdering
         '
@@ -562,10 +554,13 @@ Partial Class frmOrdering
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1139, 714)
+        Me.ClientSize = New System.Drawing.Size(1139, 750)
+        Me.Controls.Add(Me.lblSplitAmt)
+        Me.Controls.Add(Me.lblSplit)
         Me.Controls.Add(Me.lblPaymentMeth)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblDiscountRateInfo)
+        Me.Controls.Add(Me.btnReceipt)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label3)
@@ -616,9 +611,7 @@ Partial Class frmOrdering
     Friend WithEvents btnReceipt As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents btnSplitBill As Button
     Friend WithEvents btnRemoveItem As Button
-    Friend WithEvents btnSplitItem As Button
     Friend WithEvents btnNote As Button
     Friend WithEvents btnLine As Button
     Friend WithEvents btnSplitEqual As Button
@@ -650,4 +643,6 @@ Partial Class frmOrdering
     Friend WithEvents lstItemID As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lblPaymentMeth As Label
+    Friend WithEvents lblSplit As Label
+    Friend WithEvents lblSplitAmt As Label
 End Class

@@ -22,6 +22,7 @@ Public Class frmOrdering_Type
         pnl_btnDineIn.Top = btnDineIn.Top
         pnlDineIn.Visible = True
         pnlTakeOut.Visible = False
+        pnlHistory.Visible = False
 
 
         AddHandler btnTable1.Click, Sub() TableNumber(btnTable1)
@@ -39,6 +40,7 @@ Public Class frmOrdering_Type
         pnl__btnTakeOut.Top = btnTakeOut.Top
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = True
+        pnlHistory.Visible = False
 
         frmOrdering.UpdatelblOrderID()
 
@@ -76,8 +78,9 @@ Public Class frmOrdering_Type
     Private Sub frmOrdering_Type_Load(sender As Object, e As EventArgs) Handles Me.Load
         pnlDineIn.Visible = False
         pnlTakeOut.Visible = False
-
+        pnlHistory.Visible = False
         rs.FindAllControls(Me)
+
 
     End Sub
 
@@ -132,4 +135,24 @@ Public Class frmOrdering_Type
 
         Return True
     End Function
+
+    Private Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
+        pnl_btnHistory.Height = btnHistory.Height
+        pnl_btnHistory.Top = btnHistory.Top
+        pnlDineIn.Visible = False
+        pnlTakeOut.Visible = False
+        pnlHistory.Visible = True
+
+
+        DB.ExecuteQuery("select c.order_id, o.item_id, m.item_name, m.price, o.quantity,p.payment_id,p.payment_method,p.amount_paid,c.order_date,c.order_time
+from customer_order as c
+left join order_item as o on c.order_id = o.order_id
+left join menu as m on o.item_id = m.item_id
+left join payment as p on p.order_id = c.order_id
+order by c.order_id asc")
+
+        dgvHistory.DataSource = DB.DBDataTable
+
+
+    End Sub
 End Class
