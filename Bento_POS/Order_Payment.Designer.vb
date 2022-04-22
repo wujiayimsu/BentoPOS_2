@@ -119,9 +119,9 @@ Partial Class Order_Payment
         Me.btnEnter.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
         Me.btnEnter.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEnter.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnEnter.Location = New System.Drawing.Point(191, 108)
+        Me.btnEnter.Location = New System.Drawing.Point(182, 108)
         Me.btnEnter.Name = "btnEnter"
-        Me.btnEnter.Size = New System.Drawing.Size(76, 31)
+        Me.btnEnter.Size = New System.Drawing.Size(85, 31)
         Me.btnEnter.TabIndex = 90
         Me.btnEnter.Text = "ENTER"
         Me.btnEnter.UseVisualStyleBackColor = False
