@@ -22,7 +22,7 @@ Partial Class frmOrdering_Type
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlDineIn = New System.Windows.Forms.Panel()
         Me.btnTable7 = New System.Windows.Forms.Button()
         Me.btnTable8 = New System.Windows.Forms.Button()
@@ -61,12 +61,22 @@ Partial Class frmOrdering_Type
         Me.lblFirstname = New System.Windows.Forms.Label()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.pnlHistory = New System.Windows.Forms.Panel()
+        Me.pnlHisotryCtrl = New System.Windows.Forms.Panel()
+        Me.txtFirstName_History = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtCusID_History = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtOrderNumber = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnClear_History = New System.Windows.Forms.Button()
         Me.dgvHistory = New System.Windows.Forms.DataGridView()
         Me.pnlDineIn.SuspendLayout()
         Me.pnlLeftSide.SuspendLayout()
         Me.pnlTakeOut.SuspendLayout()
         Me.pnlTitle.SuspendLayout()
         Me.pnlHistory.SuspendLayout()
+        Me.pnlHisotryCtrl.SuspendLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -504,18 +514,107 @@ Partial Class frmOrdering_Type
         '
         'pnlHistory
         '
+        Me.pnlHistory.Controls.Add(Me.pnlHisotryCtrl)
         Me.pnlHistory.Controls.Add(Me.dgvHistory)
         Me.pnlHistory.Location = New System.Drawing.Point(144, 93)
         Me.pnlHistory.Name = "pnlHistory"
         Me.pnlHistory.Size = New System.Drawing.Size(996, 572)
         Me.pnlHistory.TabIndex = 1
         '
+        'pnlHisotryCtrl
+        '
+        Me.pnlHisotryCtrl.Controls.Add(Me.txtFirstName_History)
+        Me.pnlHisotryCtrl.Controls.Add(Me.Label4)
+        Me.pnlHisotryCtrl.Controls.Add(Me.Label3)
+        Me.pnlHisotryCtrl.Controls.Add(Me.txtCusID_History)
+        Me.pnlHisotryCtrl.Controls.Add(Me.Label2)
+        Me.pnlHisotryCtrl.Controls.Add(Me.txtOrderNumber)
+        Me.pnlHisotryCtrl.Controls.Add(Me.Label1)
+        Me.pnlHisotryCtrl.Controls.Add(Me.btnClear_History)
+        Me.pnlHisotryCtrl.Location = New System.Drawing.Point(0, 0)
+        Me.pnlHisotryCtrl.Name = "pnlHisotryCtrl"
+        Me.pnlHisotryCtrl.Size = New System.Drawing.Size(995, 100)
+        Me.pnlHisotryCtrl.TabIndex = 58
+        '
+        'txtFirstName_History
+        '
+        Me.txtFirstName_History.Location = New System.Drawing.Point(382, 38)
+        Me.txtFirstName_History.Name = "txtFirstName_History"
+        Me.txtFirstName_History.Size = New System.Drawing.Size(132, 20)
+        Me.txtFirstName_History.TabIndex = 64
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(294, 38)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(82, 19)
+        Me.Label4.TabIndex = 65
+        Me.Label4.Text = "First Name"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(570, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(0, 19)
+        Me.Label3.TabIndex = 63
+        '
+        'txtCusID_History
+        '
+        Me.txtCusID_History.Location = New System.Drawing.Point(126, 39)
+        Me.txtCusID_History.Name = "txtCusID_History"
+        Me.txtCusID_History.Size = New System.Drawing.Size(132, 20)
+        Me.txtCusID_History.TabIndex = 60
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(28, 39)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 19)
+        Me.Label2.TabIndex = 61
+        Me.Label2.Text = "Customer ID"
+        '
+        'txtOrderNumber
+        '
+        Me.txtOrderNumber.Location = New System.Drawing.Point(642, 39)
+        Me.txtOrderNumber.Name = "txtOrderNumber"
+        Me.txtOrderNumber.Size = New System.Drawing.Size(132, 20)
+        Me.txtOrderNumber.TabIndex = 58
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(559, 39)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(67, 19)
+        Me.Label1.TabIndex = 59
+        Me.Label1.Text = "Order ID"
+        '
+        'btnClear_History
+        '
+        Me.btnClear_History.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnClear_History.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
+        Me.btnClear_History.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear_History.ForeColor = System.Drawing.Color.Black
+        Me.btnClear_History.Location = New System.Drawing.Point(846, 28)
+        Me.btnClear_History.Name = "btnClear_History"
+        Me.btnClear_History.Size = New System.Drawing.Size(110, 40)
+        Me.btnClear_History.TabIndex = 28
+        Me.btnClear_History.Text = "CLEAR"
+        Me.btnClear_History.UseVisualStyleBackColor = False
+        '
         'dgvHistory
         '
         Me.dgvHistory.AllowUserToOrderColumns = True
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -527,9 +626,9 @@ Partial Class frmOrdering_Type
         Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
         Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.dgvHistory.Location = New System.Drawing.Point(0, 80)
+        Me.dgvHistory.Location = New System.Drawing.Point(0, 101)
         Me.dgvHistory.Name = "dgvHistory"
-        Me.dgvHistory.Size = New System.Drawing.Size(995, 489)
+        Me.dgvHistory.Size = New System.Drawing.Size(995, 468)
         Me.dgvHistory.TabIndex = 0
         '
         'frmOrdering_Type
@@ -553,6 +652,8 @@ Partial Class frmOrdering_Type
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlTitle.PerformLayout()
         Me.pnlHistory.ResumeLayout(False)
+        Me.pnlHisotryCtrl.ResumeLayout(False)
+        Me.pnlHisotryCtrl.PerformLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -597,4 +698,13 @@ Partial Class frmOrdering_Type
     Friend WithEvents lblOrderID As Label
     Friend WithEvents pnlHistory As Panel
     Friend WithEvents dgvHistory As DataGridView
+    Friend WithEvents btnClear_History As Button
+    Friend WithEvents pnlHisotryCtrl As Panel
+    Friend WithEvents txtFirstName_History As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtCusID_History As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtOrderNumber As TextBox
+    Friend WithEvents Label1 As Label
 End Class

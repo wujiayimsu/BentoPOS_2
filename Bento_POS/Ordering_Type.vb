@@ -52,7 +52,6 @@ Public Class frmOrdering_Type
         Me.Close()
     End Sub
 
-    '#######################validation part needed to be add in here#####################################'
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         Dim frmOrdering As New frmOrdering
 
@@ -67,7 +66,7 @@ Public Class frmOrdering_Type
 
 
     End Sub
-    '#######################validation part needed to be add in here#####################################'
+
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtFirstName.Clear()
         txtLastName.Clear()
@@ -83,7 +82,6 @@ Public Class frmOrdering_Type
 
 
     End Sub
-
 
     Private Sub frmOrdering_Type_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
@@ -144,12 +142,7 @@ Public Class frmOrdering_Type
         pnlHistory.Visible = True
 
 
-        DB.ExecuteQuery("select c.order_id as 'Order ID', c.customer_id as 'Customer ID', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date',c.order_time as 'Order Time'
-from customer_order as c
-left join order_item as o on c.order_id = o.order_id
-left join menu as m on o.item_id = m.item_id
-left join payment as p on p.order_id = c.order_id
-order by c.order_id asc")
+        DB.ExecuteQuery("SELECT c.order_id as 'Order ID', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date',c.order_time as 'Order Time' FROM customer_order as c LEFT JOIN order_item as o ON c.order_id = o.order_id LEFT JOIN menu as m ON o.item_id = m.item_id LEFT JOIN payment as p ON p.order_id = c.order_id LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id ORDER BY c.order_id asc")
 
         If DB.DBException <> String.Empty Then
             MessageBox.Show(DB.DBException)
@@ -159,5 +152,60 @@ order by c.order_id asc")
         dgvHistory.DataSource = DB.DBDataTable
 
 
+    End Sub
+    '**************************************************** History ***********************************************************'
+
+
+
+    Private Sub SearchOrder(strCustomerID As String, strFirstname As String, strOrderID As String)
+
+        DB.AddParam("@customer_id", strCustomerID & "%")
+        DB.AddParam("@first_name", strFirstname & "%")
+        DB.AddParam("@order_id", strOrderID & "%")
+
+
+        DB.ExecuteQuery("
+SELECT c.order_id as 'Order ID', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', 
+m.item_name as 'Item', m.price as 'Price', 
+o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',
+p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',
+c.order_date as 'Order Date',c.order_time as 'Order Time' 
+FROM customer_order as c 
+LEFT JOIN order_item as o ON c.order_id = o.order_id 
+LEFT JOIN menu as m ON o.item_id = m.item_id 
+LEFT JOIN payment as p ON p.order_id = c.order_id 
+LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id
+WHERE c.customer_id LIKE ?
+AND Cus.first_name LIKE ?
+AND c.order_id LIKE ?
+ORDER BY c.order_id asc")
+
+
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
+
+        dgvHistory.DataSource = DB.DBDataTable
+
+    End Sub
+
+    Private Sub txtCusID_History_KeyUp(sender As Object, e As KeyEventArgs) Handles txtCusID_History.KeyUp
+        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
+    End Sub
+
+    Private Sub btnClear_History_Click(sender As Object, e As EventArgs) Handles btnClear_History.Click
+        txtCusID_History.Clear()
+        txtFirstName_History.Clear()
+        txtOrderNumber.Clear()
+        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
+    End Sub
+
+    Private Sub txtFirstName_History_KeyUp(sender As Object, e As KeyEventArgs) Handles txtFirstName_History.KeyUp
+        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
+    End Sub
+
+    Private Sub txtOrderNumber_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOrderNumber.KeyUp
+        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
     End Sub
 End Class

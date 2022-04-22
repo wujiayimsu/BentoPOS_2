@@ -202,6 +202,7 @@ Public Class frmOrdering
         lstPrice.Items.Clear()
         lstQuantity.Items.Clear()
         lstItemID.Items.Clear()
+        decDiscountRate = 0.00
         ButtomFiguresDisplay()
     End Sub
 
@@ -322,22 +323,22 @@ Public Class frmOrdering
     End Sub
 
     Public Sub InsertPayment()
-        DB.AddParam("order_id", intOrderID)
-        DB.AddParam("total_price", CDec(lblTotal.Text))
-        DB.AddParam("tax", CDec(lblTax.Text))
+        DB.AddParam("order_id", intOrderID)   '1 param
+        DB.AddParam("total_price", CDec(lblTotal.Text))    '2 param
+        DB.AddParam("tax", CDec(lblTax.Text))    '3 param
 
         If CDec(lblDiscAmt.Text) <= 0 Then
-            DB.AddParam("@discount_id", DBNull.Value)
-            DB.AddParam("@discounted_total", "0.00")
+            DB.AddParam("@discount_id", DBNull.Value)   '4 param
+            DB.AddParam("@discounted_total", "0.00")    '5 param
         Else
             DB.AddParam("@discount_id", frmOrder_discount.intDiscountID)
             DB.AddParam("@discounted_total", CDec(lblDiscAmt.Text))
         End If
 
-        DB.AddParam("@amount_paid", CDec(lblTotal.Text))
-        DB.AddParam("payment_method", lblPaymentMeth.Text)
+        DB.AddParam("@amount_paid", CDec(lblTotal.Text))     '6 param
+        DB.AddParam("payment_method", lblPaymentMeth.Text)      '7 param
 
-        DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES(?,?,?,?,?,?,?,?,?)")
+        DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES (?,?,?,?,?,?,?)")
         If DB.DBException <> String.Empty Then
             MessageBox.Show(DB.DBException)
             Exit Sub
