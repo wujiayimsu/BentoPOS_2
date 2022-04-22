@@ -505,11 +505,11 @@ Partial Class frmOrdering
         'lblPaymentMeth
         '
         Me.lblPaymentMeth.AutoSize = True
-        Me.lblPaymentMeth.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPaymentMeth.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.lblPaymentMeth.Location = New System.Drawing.Point(220, 663)
+        Me.lblPaymentMeth.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPaymentMeth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblPaymentMeth.Location = New System.Drawing.Point(219, 658)
         Me.lblPaymentMeth.Name = "lblPaymentMeth"
-        Me.lblPaymentMeth.Size = New System.Drawing.Size(74, 23)
+        Me.lblPaymentMeth.Size = New System.Drawing.Size(93, 29)
         Me.lblPaymentMeth.TabIndex = 60
         Me.lblPaymentMeth.Text = "Method"
         '

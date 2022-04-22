@@ -15,6 +15,8 @@ Public Class frmOrdering
 
         lblSplit.Text = String.Empty
         lblSplitAmt.Text = String.Empty
+        lblPaymentMeth.Text = String.Empty
+
     End Sub
 
     '*********************************************Add buttons for pnlMenuCategory*********************************************************'
@@ -203,6 +205,7 @@ Public Class frmOrdering
         lstQuantity.Items.Clear()
         lstItemID.Items.Clear()
         decDiscountRate = 0.00
+        strPayMethod = String.Empty
         ButtomFiguresDisplay()
     End Sub
 
@@ -302,7 +305,6 @@ Public Class frmOrdering
             Exit Sub
         End If
 
-        MessageBox.Show("customer order table inserted")
     End Sub
     Public Sub InsertOrderItem()
 
@@ -318,25 +320,33 @@ Public Class frmOrdering
                 Exit Sub
             End If
         Next
-        MessageBox.Show("order item table inserted")
+
 
     End Sub
 
     Public Sub InsertPayment()
-        DB.AddParam("order_id", intOrderID)   '1 param
-        DB.AddParam("total_price", CDec(lblTotal.Text))    '2 param
-        DB.AddParam("tax", CDec(lblTax.Text))    '3 param
+        Dim strOrderID As String = intOrderID
+        Dim strTotal As String = lblTotal.Text
+        Dim strTax As String = lblTax.Text
+        Dim strDiscountID As String = frmOrder_discount.intDiscountID
+        Dim strDiscountedTotal As String = lblDiscAmt.Text
+        Dim strAmountPaid As String = lblTotal.Text
+        Dim strPaymentMethod As String = lblPaymentMeth.Text
+
+        DB.AddParam("order_id", strOrderID)   '1 param
+        DB.AddParam("total_price", strTotal)    '2 param
+        DB.AddParam("tax", strTax)    '3 param
 
         If CDec(lblDiscAmt.Text) <= 0 Then
             DB.AddParam("@discount_id", DBNull.Value)   '4 param
             DB.AddParam("@discounted_total", "0.00")    '5 param
         Else
-            DB.AddParam("@discount_id", frmOrder_discount.intDiscountID)
-            DB.AddParam("@discounted_total", CDec(lblDiscAmt.Text))
+            DB.AddParam("@discount_id", strDiscountID)
+            DB.AddParam("@discounted_total", strDiscountedTotal)
         End If
 
-        DB.AddParam("@amount_paid", CDec(lblTotal.Text))     '6 param
-        DB.AddParam("payment_method", lblPaymentMeth.Text)      '7 param
+        DB.AddParam("@amount_paid", strAmountPaid)     '6 param
+        DB.AddParam("payment_method", strPaymentMethod)      '7 param
 
         DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES (?,?,?,?,?,?,?)")
         If DB.DBException <> String.Empty Then
@@ -344,7 +354,6 @@ Public Class frmOrdering
             Exit Sub
         End If
 
-        MessageBox.Show("payment table inserted")
     End Sub
 
 
