@@ -4,6 +4,7 @@ Public Class frmOrdering
     Dim rs As New Resizer
     Dim intOrderID As Integer
     Dim dtOrderItem As New DataTable
+    Dim decSplitAmt As Decimal
 
 
 
@@ -33,15 +34,17 @@ Public Class frmOrdering
 
         Try
             For Each row In dtMenuCategory.Rows
-                Dim btnCategoryGroup As New Button
+                If row("is_active") = 1 Then
+                    Dim btnCategoryGroup As New Button
 
-                AddHandler btnCategoryGroup.Click, Sub() CategorySelection(btnCategoryGroup)
+                    AddHandler btnCategoryGroup.Click, Sub() CategorySelection(btnCategoryGroup)
 
-                btnCategoryGroup.Text = row("name")
-                btnCategoryGroup.Size = New Size(120, 36)
-                btnCategoryGroup.Font = New System.Drawing.Font("Calibri", 11)
+                    btnCategoryGroup.Text = row("name")
+                    btnCategoryGroup.Size = New Size(120, 36)
+                    btnCategoryGroup.Font = New System.Drawing.Font("Calibri", 11)
+                    pnlMenuCategory.Controls.Add(btnCategoryGroup)
+                End If
 
-                pnlMenuCategory.Controls.Add(btnCategoryGroup)
             Next
         Catch ex As Exception
             MessageBox.Show("error")
@@ -59,7 +62,7 @@ Public Class frmOrdering
         pnlMenuItem.Controls.Clear()
 
         DB.AddParam("@name", strCategorySelected)
-        DB.ExecuteQuery("select * from menu_category as C join menu as m on c.category_id = m.category_id where name = ?")
+        DB.ExecuteQuery("select c.category_id, c.name, m.item_id, m.item_name,m.price,m.is_active from menu_category as C  join menu as m on c.category_id = m.category_id where name = ?")
 
         If DB.DBException <> String.Empty Then
             MessageBox.Show(DB.DBException)
@@ -70,16 +73,17 @@ Public Class frmOrdering
 
         Try
             For Each row In dtMenuitem.Rows
-                Dim btnMenuItemGroup As New Button
+                If row("is_active") = 1 Then
+                    Dim btnMenuItemGroup As New Button
 
-                AddHandler btnMenuItemGroup.Click, Sub() MenuItemSelection(btnMenuItemGroup)
+                    AddHandler btnMenuItemGroup.Click, Sub() MenuItemSelection(btnMenuItemGroup)
 
-                btnMenuItemGroup.Text = row("item_name")
-                btnMenuItemGroup.Size = New Size(120, 35)
-                btnMenuItemGroup.Font = New System.Drawing.Font("Calibri", 10)
+                    btnMenuItemGroup.Text = row("item_name")
+                    btnMenuItemGroup.Size = New Size(120, 35)
+                    btnMenuItemGroup.Font = New System.Drawing.Font("Calibri", 10)
 
-                pnlMenuItem.Controls.Add(btnMenuItemGroup)
-
+                    pnlMenuItem.Controls.Add(btnMenuItemGroup)
+                End If
             Next
 
         Catch ex As Exception
@@ -156,7 +160,6 @@ Public Class frmOrdering
         Dim dblTaxRate As Decimal = 0.06
         Dim decTax As Decimal
 
-
         lblTax.Text = (CDbl(lblSubTotal.Text) * dblTaxRate).ToString("N2")
         decTax = CDec(lblTax.Text)
     End Sub
@@ -185,12 +188,29 @@ Public Class frmOrdering
 
     End Sub
 
-    Public Sub UpdatelblOrderID()
-        DB.ExecuteQuery("SELECT order_id FROM customer_order ORDER BY order_id DESC")
-        intOrderID = DB.RecordCount + 1
-        lblOrderID.Text = ("Order ID " & intOrderID.ToString)
-        frmOrdering_Type.lblOrderID.Text = ("Order ID    " & intOrderID.ToString)
+    Sub SplitEqually()
 
+        If intSplitCount > 0 Then
+            decSplitAmt = CDec(lblTotal.Text) / intSplitCount
+
+            lblSplit.Text = "Split Equally by " & intSplitCount & " :"
+            lblSplitAmt.Text = "$ " & decSplitAmt.ToString("N2")
+        Else
+            lblSplit.Text = String.Empty
+            lblSplitAmt.Text = String.Empty
+
+        End If
+    End Sub
+
+    Public Sub UpdatelblOrderID()
+        Dim dtOrderID As New DataTable
+        DB.ExecuteQuery("SELECT order_id FROM customer_order ORDER BY order_id DESC LIMIT 1")
+        dtOrderID = DB.DBDataTable
+        For Each row In dtOrderID.Rows
+            intOrderID = row("order_id") + 1
+            lblOrderID.Text = ("Order ID " & intOrderID.ToString)
+            frmOrdering_Type.lblOrderID.Text = ("Order ID    " & intOrderID.ToString)
+        Next
 
     End Sub
 
@@ -297,7 +317,7 @@ Public Class frmOrdering
             DB.AddParam("@customer_id", frmOrdering_Type.txtCustomerID.Text)
         End If
 
-        DB.AddParam("@staff_id", "3")
+        DB.AddParam("@staff_id", "3")   '**************needs to be updated, after combine with the security level******************'
         DB.AddParam("@order_status", strComplete)
         DB.AddParam("@order_type", lblOrderType.Text)
 
@@ -306,6 +326,8 @@ Public Class frmOrdering
             MessageBox.Show(DB.DBException)
             Exit Sub
         End If
+
+        MessageBox.Show("customer order table inserted!")
 
     End Sub
     Public Sub InsertOrderItem()
@@ -322,7 +344,7 @@ Public Class frmOrdering
                 Exit Sub
             End If
         Next
-
+        MessageBox.Show("order item table inserted!")
 
     End Sub
 
@@ -333,32 +355,64 @@ Public Class frmOrdering
         Dim strOrderID As String = intOrderID
         Dim strTotal As String = lblTotal.Text
         Dim strTax As String = lblTax.Text
-        Dim strDiscountID As String = frmOrder_discount.intDiscountID
+        Dim strDiscountID As String = frmOrder_discount.strDiscountID
         Dim strDiscountedTotal As String = lblDiscAmt.Text
         Dim strAmountPaid As String = lblTotal.Text
         Dim strPaymentMethod As String = lblPaymentMeth.Text
+        Dim intCounter As Integer = intSplitCount + 1
+        Dim strSplitAmt As String = decSplitAmt
 
-        DB.AddParam("order_id", strOrderID)   '1 param
-        DB.AddParam("total_price", strTotal)    '2 param
-        DB.AddParam("tax", strTax)    '3 param
+        Select Case intCounter
+            Case >= 2
+                Do While intCounter >= 1
+                    DB.AddParam("order_id", strOrderID)   '1 param
+                    DB.AddParam("total_price", strTotal)    '2 param
+                    DB.AddParam("tax", strTax)    '3 param
 
-        If decDiscountRate <= 0 Then
-            DB.AddParam("@discount_id", DBNull.Value)   '4 param
-            DB.AddParam("@discounted_total", "0.00")    '5 param
-        Else
-            DB.AddParam("@discount_id", strDiscountID)
-            DB.AddParam("@discounted_total", strDiscountedTotal)
-        End If
+                    If decDiscountRate <= 0 Then
+                        DB.AddParam("@discount_id", DBNull.Value)   '4 param
+                        DB.AddParam("@discounted_total", strDiscountedTotal)    '5 param
+                    Else
+                        DB.AddParam("@discount_id", strDiscountID)
+                        DB.AddParam("@discounted_total", strDiscountedTotal)
+                    End If
 
-        DB.AddParam("@amount_paid", strAmountPaid)     '6 param
-        DB.AddParam("payment_method", strPaymentMethod)      '7 param
 
-        DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES (?,?,?,?,?,?,?)")
-        If DB.DBException <> String.Empty Then
-            MessageBox.Show(DB.DBException)
-            Exit Sub
-        End If
+                    DB.AddParam("@amount_paid", strSplitAmt)     '6 param
+                    DB.AddParam("payment_method", strPaymentMethod)      '7 param
 
+                    DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES (?,?,?,?,?,?,?)")
+                    If DB.DBException <> String.Empty Then
+                        MessageBox.Show(DB.DBException)
+                        Exit Sub
+                    End If
+                    intCounter -= 1
+                Loop
+
+            Case = 1
+                DB.AddParam("order_id", strOrderID)   '1 param
+                DB.AddParam("total_price", strTotal)    '2 param
+                DB.AddParam("tax", strTax)    '3 param
+
+                If decDiscountRate <= 0 Then
+                    DB.AddParam("@discount_id", DBNull.Value)   '4 param
+                    DB.AddParam("@discounted_total", strDiscountedTotal)    '5 param
+                Else
+                    DB.AddParam("@discount_id", strDiscountID)
+                    DB.AddParam("@discounted_total", strDiscountedTotal)
+                End If
+
+
+                DB.AddParam("@amount_paid", strTotal)     '6 param
+                DB.AddParam("payment_method", strPaymentMethod)      '7 param
+
+                DB.ExecuteQuery("INSERT INTO payment(order_id, total_price, tax, discount_id, discounted_total, amount_paid, payment_method) VALUES (?,?,?,?,?,?,?)")
+                If DB.DBException <> String.Empty Then
+                    MessageBox.Show(DB.DBException)
+                    Exit Sub
+                End If
+        End Select
+        MessageBox.Show("payment table inserted!!")
     End Sub
 
 
@@ -414,19 +468,5 @@ Public Class frmOrdering
 
     End Sub
 
-    Sub SplitEqually()
 
-        Dim decSplitAmt As Decimal
-
-        If intSplitCount > 0 Then
-            decSplitAmt = CDec(lblTotal.Text) / intSplitCount
-
-            lblSplit.Text = "Split Equally by " & intSplitCount & " :"
-            lblSplitAmt.Text = "$ " & decSplitAmt.ToString("N2")
-        Else
-            lblSplit.Text = String.Empty
-            lblSplitAmt.Text = String.Empty
-
-        End If
-    End Sub
 End Class
