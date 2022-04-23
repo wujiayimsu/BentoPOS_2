@@ -22,6 +22,7 @@ Partial Class frmOrdering_Type
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlDineIn = New System.Windows.Forms.Panel()
         Me.btnTable7 = New System.Windows.Forms.Button()
@@ -45,12 +46,10 @@ Partial Class frmOrdering_Type
         Me.btnHistory = New System.Windows.Forms.Button()
         Me.btnDineIn = New System.Windows.Forms.Button()
         Me.btnTakeOut = New System.Windows.Forms.Button()
-        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlTakeOut = New System.Windows.Forms.Panel()
         Me.lblOrderID = New System.Windows.Forms.Label()
         Me.txtCustomerID = New System.Windows.Forms.TextBox()
         Me.lblCustomerID = New System.Windows.Forms.Label()
-        Me.pnlOpenTakeOut = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.txtPhone = New System.Windows.Forms.TextBox()
@@ -59,7 +58,6 @@ Partial Class frmOrdering_Type
         Me.lblPhone = New System.Windows.Forms.Label()
         Me.lblLastName = New System.Windows.Forms.Label()
         Me.lblFirstname = New System.Windows.Forms.Label()
-        Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.pnlHistory = New System.Windows.Forms.Panel()
         Me.pnlHisotryCtrl = New System.Windows.Forms.Panel()
         Me.txtFirstName_History = New System.Windows.Forms.TextBox()
@@ -71,13 +69,15 @@ Partial Class frmOrdering_Type
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnClear_History = New System.Windows.Forms.Button()
         Me.dgvHistory = New System.Windows.Forms.DataGridView()
+        Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlDineIn.SuspendLayout()
         Me.pnlLeftSide.SuspendLayout()
         Me.pnlTakeOut.SuspendLayout()
-        Me.pnlTitle.SuspendLayout()
         Me.pnlHistory.SuspendLayout()
         Me.pnlHisotryCtrl.SuspendLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlTitle.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlDineIn
@@ -93,7 +93,7 @@ Partial Class frmOrdering_Type
         Me.pnlDineIn.Controls.Add(Me.pnlSofa2)
         Me.pnlDineIn.Controls.Add(Me.pnlSofa1)
         Me.pnlDineIn.Controls.Add(Me.pnlSofa3)
-        Me.pnlDineIn.Location = New System.Drawing.Point(144, 97)
+        Me.pnlDineIn.Location = New System.Drawing.Point(145, 93)
         Me.pnlDineIn.Name = "pnlDineIn"
         Me.pnlDineIn.Size = New System.Drawing.Size(995, 547)
         Me.pnlDineIn.TabIndex = 33
@@ -356,24 +356,11 @@ Partial Class frmOrdering_Type
         Me.btnTakeOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btnTakeOut.UseVisualStyleBackColor = False
         '
-        'lblDeveloper
-        '
-        Me.lblDeveloper.AutoSize = True
-        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
-        Me.lblDeveloper.Location = New System.Drawing.Point(1028, 0)
-        Me.lblDeveloper.Name = "lblDeveloper"
-        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
-        Me.lblDeveloper.TabIndex = 0
-        Me.lblDeveloper.Text = "Jiayi Wu@2022"
-        '
         'pnlTakeOut
         '
         Me.pnlTakeOut.Controls.Add(Me.lblOrderID)
         Me.pnlTakeOut.Controls.Add(Me.txtCustomerID)
         Me.pnlTakeOut.Controls.Add(Me.lblCustomerID)
-        Me.pnlTakeOut.Controls.Add(Me.pnlOpenTakeOut)
         Me.pnlTakeOut.Controls.Add(Me.btnNext)
         Me.pnlTakeOut.Controls.Add(Me.btnClear)
         Me.pnlTakeOut.Controls.Add(Me.txtPhone)
@@ -382,7 +369,7 @@ Partial Class frmOrdering_Type
         Me.pnlTakeOut.Controls.Add(Me.lblPhone)
         Me.pnlTakeOut.Controls.Add(Me.lblLastName)
         Me.pnlTakeOut.Controls.Add(Me.lblFirstname)
-        Me.pnlTakeOut.Location = New System.Drawing.Point(144, 93)
+        Me.pnlTakeOut.Location = New System.Drawing.Point(145, 93)
         Me.pnlTakeOut.Name = "pnlTakeOut"
         Me.pnlTakeOut.Size = New System.Drawing.Size(995, 572)
         Me.pnlTakeOut.TabIndex = 35
@@ -399,7 +386,7 @@ Partial Class frmOrdering_Type
         '
         'txtCustomerID
         '
-        Me.txtCustomerID.Location = New System.Drawing.Point(172, 140)
+        Me.txtCustomerID.Location = New System.Drawing.Point(391, 153)
         Me.txtCustomerID.Name = "txtCustomerID"
         Me.txtCustomerID.Size = New System.Drawing.Size(191, 20)
         Me.txtCustomerID.TabIndex = 48
@@ -408,20 +395,11 @@ Partial Class frmOrdering_Type
         '
         Me.lblCustomerID.AutoSize = True
         Me.lblCustomerID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCustomerID.Location = New System.Drawing.Point(74, 141)
+        Me.lblCustomerID.Location = New System.Drawing.Point(293, 154)
         Me.lblCustomerID.Name = "lblCustomerID"
         Me.lblCustomerID.Size = New System.Drawing.Size(92, 19)
         Me.lblCustomerID.TabIndex = 47
         Me.lblCustomerID.Text = "Customer ID"
-        '
-        'pnlOpenTakeOut
-        '
-        Me.pnlOpenTakeOut.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.pnlOpenTakeOut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pnlOpenTakeOut.Location = New System.Drawing.Point(535, 3)
-        Me.pnlOpenTakeOut.Name = "pnlOpenTakeOut"
-        Me.pnlOpenTakeOut.Size = New System.Drawing.Size(457, 569)
-        Me.pnlOpenTakeOut.TabIndex = 46
         '
         'btnNext
         '
@@ -429,7 +407,7 @@ Partial Class frmOrdering_Type
         Me.btnNext.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
         Me.btnNext.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNext.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnNext.Location = New System.Drawing.Point(117, 347)
+        Me.btnNext.Location = New System.Drawing.Point(336, 360)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(100, 40)
         Me.btnNext.TabIndex = 43
@@ -442,7 +420,7 @@ Partial Class frmOrdering_Type
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(298, 347)
+        Me.btnClear.Location = New System.Drawing.Point(517, 360)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 17
@@ -451,21 +429,21 @@ Partial Class frmOrdering_Type
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(172, 282)
+        Me.txtPhone.Location = New System.Drawing.Point(391, 295)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(191, 20)
         Me.txtPhone.TabIndex = 5
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(172, 234)
+        Me.txtLastName.Location = New System.Drawing.Point(391, 247)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(191, 20)
         Me.txtLastName.TabIndex = 4
         '
         'txtFirstName
         '
-        Me.txtFirstName.Location = New System.Drawing.Point(172, 186)
+        Me.txtFirstName.Location = New System.Drawing.Point(391, 199)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(191, 20)
         Me.txtFirstName.TabIndex = 3
@@ -474,7 +452,7 @@ Partial Class frmOrdering_Type
         '
         Me.lblPhone.AutoSize = True
         Me.lblPhone.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPhone.Location = New System.Drawing.Point(113, 282)
+        Me.lblPhone.Location = New System.Drawing.Point(332, 295)
         Me.lblPhone.Name = "lblPhone"
         Me.lblPhone.Size = New System.Drawing.Size(53, 19)
         Me.lblPhone.TabIndex = 2
@@ -484,7 +462,7 @@ Partial Class frmOrdering_Type
         '
         Me.lblLastName.AutoSize = True
         Me.lblLastName.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastName.Location = New System.Drawing.Point(86, 233)
+        Me.lblLastName.Location = New System.Drawing.Point(305, 246)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(80, 19)
         Me.lblLastName.TabIndex = 1
@@ -494,29 +472,17 @@ Partial Class frmOrdering_Type
         '
         Me.lblFirstname.AutoSize = True
         Me.lblFirstname.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFirstname.Location = New System.Drawing.Point(84, 187)
+        Me.lblFirstname.Location = New System.Drawing.Point(303, 200)
         Me.lblFirstname.Name = "lblFirstname"
         Me.lblFirstname.Size = New System.Drawing.Size(82, 19)
         Me.lblFirstname.TabIndex = 0
         Me.lblFirstname.Text = "First Name"
         '
-        'pnlTitle
-        '
-        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
-        Me.pnlTitle.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
-        Me.pnlTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pnlTitle.Controls.Add(Me.lblDeveloper)
-        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
-        Me.pnlTitle.Name = "pnlTitle"
-        Me.pnlTitle.Size = New System.Drawing.Size(1140, 93)
-        Me.pnlTitle.TabIndex = 13
-        '
         'pnlHistory
         '
         Me.pnlHistory.Controls.Add(Me.pnlHisotryCtrl)
         Me.pnlHistory.Controls.Add(Me.dgvHistory)
-        Me.pnlHistory.Location = New System.Drawing.Point(144, 93)
+        Me.pnlHistory.Location = New System.Drawing.Point(145, 93)
         Me.pnlHistory.Name = "pnlHistory"
         Me.pnlHistory.Size = New System.Drawing.Size(996, 572)
         Me.pnlHistory.TabIndex = 1
@@ -538,7 +504,7 @@ Partial Class frmOrdering_Type
         '
         'txtFirstName_History
         '
-        Me.txtFirstName_History.Location = New System.Drawing.Point(382, 38)
+        Me.txtFirstName_History.Location = New System.Drawing.Point(400, 39)
         Me.txtFirstName_History.Name = "txtFirstName_History"
         Me.txtFirstName_History.Size = New System.Drawing.Size(132, 20)
         Me.txtFirstName_History.TabIndex = 64
@@ -547,7 +513,7 @@ Partial Class frmOrdering_Type
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(294, 38)
+        Me.Label4.Location = New System.Drawing.Point(312, 39)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(82, 19)
         Me.Label4.TabIndex = 65
@@ -557,14 +523,14 @@ Partial Class frmOrdering_Type
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(570, 23)
+        Me.Label3.Location = New System.Drawing.Point(588, 24)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(0, 19)
         Me.Label3.TabIndex = 63
         '
         'txtCusID_History
         '
-        Me.txtCusID_History.Location = New System.Drawing.Point(126, 39)
+        Me.txtCusID_History.Location = New System.Drawing.Point(144, 39)
         Me.txtCusID_History.Name = "txtCusID_History"
         Me.txtCusID_History.Size = New System.Drawing.Size(132, 20)
         Me.txtCusID_History.TabIndex = 60
@@ -573,7 +539,7 @@ Partial Class frmOrdering_Type
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(28, 39)
+        Me.Label2.Location = New System.Drawing.Point(46, 39)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 19)
         Me.Label2.TabIndex = 61
@@ -581,7 +547,7 @@ Partial Class frmOrdering_Type
         '
         'txtOrderNumber
         '
-        Me.txtOrderNumber.Location = New System.Drawing.Point(642, 39)
+        Me.txtOrderNumber.Location = New System.Drawing.Point(654, 39)
         Me.txtOrderNumber.Name = "txtOrderNumber"
         Me.txtOrderNumber.Size = New System.Drawing.Size(132, 20)
         Me.txtOrderNumber.TabIndex = 58
@@ -590,7 +556,7 @@ Partial Class frmOrdering_Type
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(559, 39)
+        Me.Label1.Location = New System.Drawing.Point(571, 39)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 19)
         Me.Label1.TabIndex = 59
@@ -602,7 +568,7 @@ Partial Class frmOrdering_Type
         Me.btnClear_History.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnClear_History.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear_History.ForeColor = System.Drawing.Color.Black
-        Me.btnClear_History.Location = New System.Drawing.Point(846, 28)
+        Me.btnClear_History.Location = New System.Drawing.Point(842, 26)
         Me.btnClear_History.Name = "btnClear_History"
         Me.btnClear_History.Size = New System.Drawing.Size(110, 40)
         Me.btnClear_History.TabIndex = 28
@@ -612,9 +578,9 @@ Partial Class frmOrdering_Type
         'dgvHistory
         '
         Me.dgvHistory.AllowUserToOrderColumns = True
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -622,14 +588,46 @@ Partial Class frmOrdering_Type
         Me.dgvHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvHistory.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
+        Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dgvHistory.Location = New System.Drawing.Point(0, 101)
         Me.dgvHistory.Name = "dgvHistory"
         Me.dgvHistory.Size = New System.Drawing.Size(995, 468)
         Me.dgvHistory.TabIndex = 0
+        '
+        'pnlTitle
+        '
+        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(147, Byte), Integer), CType(CType(131, Byte), Integer))
+        Me.pnlTitle.BackgroundImage = Global.ReadSearch.My.Resources.Resources.Yum_ribbon
+        Me.pnlTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pnlTitle.Controls.Add(Me.lblDeveloper)
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(1140, 93)
+        Me.pnlTitle.TabIndex = 13
+        '
+        'lblDeveloper
+        '
+        Me.lblDeveloper.AutoSize = True
+        Me.lblDeveloper.Dock = System.Windows.Forms.DockStyle.Right
+        Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeveloper.ForeColor = System.Drawing.Color.White
+        Me.lblDeveloper.Location = New System.Drawing.Point(1028, 0)
+        Me.lblDeveloper.Name = "lblDeveloper"
+        Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
+        Me.lblDeveloper.TabIndex = 0
+        Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
         'frmOrdering_Type
         '
@@ -649,12 +647,12 @@ Partial Class frmOrdering_Type
         Me.pnlLeftSide.PerformLayout()
         Me.pnlTakeOut.ResumeLayout(False)
         Me.pnlTakeOut.PerformLayout()
-        Me.pnlTitle.ResumeLayout(False)
-        Me.pnlTitle.PerformLayout()
         Me.pnlHistory.ResumeLayout(False)
         Me.pnlHisotryCtrl.ResumeLayout(False)
         Me.pnlHisotryCtrl.PerformLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlTitle.ResumeLayout(False)
+        Me.pnlTitle.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -682,7 +680,6 @@ Partial Class frmOrdering_Type
     Friend WithEvents btnClear As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnNext As Button
-    Friend WithEvents pnlOpenTakeOut As FlowLayoutPanel
     Friend WithEvents pnl_btnHistory As Panel
     Friend WithEvents btnHistory As Button
     Friend WithEvents pnl_btnExit As Panel

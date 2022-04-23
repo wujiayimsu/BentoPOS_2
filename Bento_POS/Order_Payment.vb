@@ -28,7 +28,6 @@
             strPayMethod = lblPayMethod.Text
             Me.Close()
             frmOrdering.Focus()
-            MessageBox.Show("payment method selected!")
         End If
 
     End Sub

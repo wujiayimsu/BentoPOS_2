@@ -33,33 +33,37 @@ Partial Class frmOrder_discount
         Me.btnApply = New System.Windows.Forms.Button()
         Me.pnlRibbon = New System.Windows.Forms.Panel()
         Me.lblDeveloper = New System.Windows.Forms.Label()
+        Me.lblDiscountID = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.pnlDiscountInfo.SuspendLayout()
         Me.pnlRibbon.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlButtonGroup
         '
-        Me.pnlButtonGroup.Location = New System.Drawing.Point(34, 320)
+        Me.pnlButtonGroup.Location = New System.Drawing.Point(34, 282)
         Me.pnlButtonGroup.Name = "pnlButtonGroup"
-        Me.pnlButtonGroup.Size = New System.Drawing.Size(444, 119)
+        Me.pnlButtonGroup.Size = New System.Drawing.Size(444, 157)
         Me.pnlButtonGroup.TabIndex = 0
         '
         'pnlDiscountInfo
         '
+        Me.pnlDiscountInfo.Controls.Add(Me.lblDiscountID)
+        Me.pnlDiscountInfo.Controls.Add(Me.Label4)
         Me.pnlDiscountInfo.Controls.Add(Me.lblDescription)
         Me.pnlDiscountInfo.Controls.Add(Me.lblDiscount)
         Me.pnlDiscountInfo.Controls.Add(Me.Label2)
         Me.pnlDiscountInfo.Controls.Add(Me.Label1)
         Me.pnlDiscountInfo.Location = New System.Drawing.Point(34, 169)
         Me.pnlDiscountInfo.Name = "pnlDiscountInfo"
-        Me.pnlDiscountInfo.Size = New System.Drawing.Size(444, 126)
+        Me.pnlDiscountInfo.Size = New System.Drawing.Size(444, 107)
         Me.pnlDiscountInfo.TabIndex = 2
         '
         'lblDescription
         '
         Me.lblDescription.AutoSize = True
         Me.lblDescription.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescription.Location = New System.Drawing.Point(182, 49)
+        Me.lblDescription.Location = New System.Drawing.Point(182, 77)
         Me.lblDescription.Name = "lblDescription"
         Me.lblDescription.Size = New System.Drawing.Size(0, 19)
         Me.lblDescription.TabIndex = 61
@@ -68,7 +72,7 @@ Partial Class frmOrder_discount
         '
         Me.lblDiscount.AutoSize = True
         Me.lblDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiscount.Location = New System.Drawing.Point(182, 14)
+        Me.lblDiscount.Location = New System.Drawing.Point(182, 42)
         Me.lblDiscount.Name = "lblDiscount"
         Me.lblDiscount.Size = New System.Drawing.Size(0, 19)
         Me.lblDiscount.TabIndex = 60
@@ -77,17 +81,17 @@ Partial Class frmOrder_discount
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(82, 49)
+        Me.Label2.Location = New System.Drawing.Point(78, 77)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 19)
+        Me.Label2.Size = New System.Drawing.Size(98, 19)
         Me.Label2.TabIndex = 58
-        Me.Label2.Text = "Description: "
+        Me.Label2.Text = "Description : "
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(95, 14)
+        Me.Label1.Location = New System.Drawing.Point(95, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(81, 19)
         Me.Label1.TabIndex = 57
@@ -156,6 +160,25 @@ Partial Class frmOrder_discount
         Me.lblDeveloper.TabIndex = 52
         Me.lblDeveloper.Text = "Jiayi Wu@2022"
         '
+        'lblDiscountID
+        '
+        Me.lblDiscountID.AutoSize = True
+        Me.lblDiscountID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiscountID.Location = New System.Drawing.Point(182, 11)
+        Me.lblDiscountID.Name = "lblDiscountID"
+        Me.lblDiscountID.Size = New System.Drawing.Size(0, 19)
+        Me.lblDiscountID.TabIndex = 63
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(77, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(99, 19)
+        Me.Label4.TabIndex = 62
+        Me.Label4.Text = "Discount ID : "
+        '
         'frmOrder_discount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -191,4 +214,6 @@ Partial Class frmOrder_discount
     Friend WithEvents btnExit As Button
     Friend WithEvents btnApply As Button
     Friend WithEvents btnClear As Button
+    Friend WithEvents lblDiscountID As Label
+    Friend WithEvents Label4 As Label
 End Class

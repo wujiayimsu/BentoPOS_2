@@ -1,8 +1,8 @@
 ﻿Public Class frmOrder_discount
     Private DB As New DBAccess
-    Dim dtDiscount As New DataTable
+    Public dtAllDiscount As New DataTable
+    Public dtSingleDiscount As New DataTable
     Dim rs As New Resizer
-    Public intDiscountID As Integer
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
         rs.FindAllControls(Me)
@@ -27,19 +27,23 @@
             Exit Sub
         End If
 
-        dtDiscount = DB.DBDataTable
+        dtAllDiscount = DB.DBDataTable
 
         Try
-            For Each row In dtDiscount.Rows
-                Dim btnDiscountGroup As New Button
+            For Each row In dtAllDiscount.Rows
+                If row("is_active") = 1 Then
+                    Dim btnDiscountGroup As New Button
 
-                AddHandler btnDiscountGroup.Click, Sub() DiscountDisplay(btnDiscountGroup)
+                    AddHandler btnDiscountGroup.Click, Sub() DiscountDisplay(btnDiscountGroup)
 
-                btnDiscountGroup.Text = row("description")
-                btnDiscountGroup.Size = New Size(120, 36)
-                btnDiscountGroup.Font = New System.Drawing.Font("Calibri", 11, FontStyle.Bold)
-                btnDiscountGroup.BackColor = ColorTranslator.FromWin32(RGB(244, 196, 108))
-                pnlButtonGroup.Controls.Add(btnDiscountGroup)
+                    btnDiscountGroup.Text = row("description")
+                    btnDiscountGroup.Size = New Size(120, 36)
+                    btnDiscountGroup.Font = New System.Drawing.Font("Calibri", 11, FontStyle.Bold)
+                    btnDiscountGroup.BackColor = ColorTranslator.FromWin32(RGB(244, 196, 108))
+                    pnlButtonGroup.Controls.Add(btnDiscountGroup)
+                Else
+                    'do nothing
+                End If
             Next
         Catch ex As Exception
             MessageBox.Show("error")
@@ -58,13 +62,15 @@
             Exit Sub
         End If
 
-        dtDiscount = DB.DBDataTable
+        dtSingleDiscount = DB.DBDataTable
 
         Try
-            For Each row In dtDiscount.Rows
+            For Each row In dtSingleDiscount.Rows
                 strDiscount = row("discount")
                 lblDiscount.Text = strDiscount
-                intDiscountID = row("discount_id")
+                strDiscountID = row("discount_id")
+                lblDiscountID.Text = strDiscountID
+
             Next
             lblDescription.Text = strDescription
         Catch ex As Exception

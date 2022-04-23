@@ -61,6 +61,8 @@ Public Class frmOrdering_Type
                 frmOrdering.lblOrderType.Text = "TO GO"
                 frmOrdering.lblCustomerID.Text = ("Customer ID " & txtCustomerID.Text)
                 frmOrdering.ShowDialog()
+            Else
+                'do nothing
             End If
         End If
 
@@ -121,8 +123,8 @@ Public Class frmOrdering_Type
         dtCustomer = DB.DBDataTable
 
         If DB.RecordCount < 1 Then
-            'do nothing
-
+            'go throught and do nothing
+            txtCustomerID.Clear()
         Else
             For Each rows In dtCustomer.Rows
                 txtFirstName.Text = rows("first_name")
@@ -133,7 +135,7 @@ Public Class frmOrdering_Type
 
         Return True
     End Function
-
+    '--------------------------------------------------- History Panel----------------------------------------------------------------'
     Private Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         pnl_btnHistory.Height = btnHistory.Height
         pnl_btnHistory.Top = btnHistory.Top
@@ -141,21 +143,11 @@ Public Class frmOrdering_Type
         pnlTakeOut.Visible = False
         pnlHistory.Visible = True
 
-
-        DB.ExecuteQuery("SELECT c.order_id as 'Order ID', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date',c.order_time as 'Order Time' FROM customer_order as c LEFT JOIN order_item as o ON c.order_id = o.order_id LEFT JOIN menu as m ON o.item_id = m.item_id LEFT JOIN payment as p ON p.order_id = c.order_id LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id ORDER BY c.order_id asc")
-
-        If DB.DBException <> String.Empty Then
-            MessageBox.Show(DB.DBException)
-            Exit Sub
-        End If
-
-        dgvHistory.DataSource = DB.DBDataTable
+        btnHistryLoad()
 
 
     End Sub
     '**************************************************** History ***********************************************************'
-
-
 
     Private Sub SearchOrder(strCustomerID As String, strFirstname As String, strOrderID As String)
 
@@ -164,21 +156,18 @@ Public Class frmOrdering_Type
         DB.AddParam("@order_id", strOrderID & "%")
 
 
-        DB.ExecuteQuery("
-SELECT c.order_id as 'Order ID', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', 
+        DB.ExecuteQuery("SELECT distinct o.order_id as 'Order ID', c.customer_id as 'Customer ID', 
+Cus.first_name as 'First Name', 
 m.item_name as 'Item', m.price as 'Price', 
-o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',
+o.quantity as 'Order Quantity', p.total_price as 'Total', p.tax as 'Tax',
 p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',
-c.order_date as 'Order Date',c.order_time as 'Order Time' 
-FROM customer_order as c 
-LEFT JOIN order_item as o ON c.order_id = o.order_id 
-LEFT JOIN menu as m ON o.item_id = m.item_id 
-LEFT JOIN payment as p ON p.order_id = c.order_id 
-LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id
-WHERE c.customer_id LIKE ?
-AND Cus.first_name LIKE ?
-AND c.order_id LIKE ?
-ORDER BY c.order_id asc")
+c.order_date as 'Order Date' 
+FROM order_item as o
+left JOIN customer_order as c ON c.order_id = o.order_id 
+left JOIN menu as m ON o.item_id = m.item_id 
+left JOIN payment as p ON p.order_id = c.order_id 
+left JOIN customer as Cus ON c.customer_id = Cus.customer_id 
+WHERE c.customer_id LIKE ? and Cus.first_name LIKE? and o.order_id LIKE ?")
 
 
         If DB.DBException <> String.Empty Then
@@ -187,8 +176,26 @@ ORDER BY c.order_id asc")
         End If
 
         dgvHistory.DataSource = DB.DBDataTable
-
     End Sub
+    Private Sub btnHistryLoad()
+
+        DB.ExecuteQuery("select co.order_id, co.customer_id, co.order_status, co.order_type, o.quantity, m.item_name,m.price, p.total_price,p.tax,p.discount_id,p.discounted_total,p.amount_paid,p.payment_method
+from customer_order as co
+left join order_item as o on co.order_id = o.order_id
+left join menu as m on o.item_id = m.item_id
+left join payment as p on co.order_id = p.order_id")
+
+
+        '  DB.ExecuteQuery("SELECT co.order_date AS 'Date', co.order_id as 'Order ID', co.order_type as 'Order Type', co.customer_id as'Customer ID', c.first_name as 'Customer Name', co.order_status as 'Order Status' from customer_order as co LEFT join customer as c on co.customer_id = c.customer_id order by co.order_date desc;")
+
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
+
+        dgvHistory.DataSource = DB.DBDataTable
+    End Sub
+
 
     Private Sub txtCusID_History_KeyUp(sender As Object, e As KeyEventArgs) Handles txtCusID_History.KeyUp
         SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
@@ -198,7 +205,8 @@ ORDER BY c.order_id asc")
         txtCusID_History.Clear()
         txtFirstName_History.Clear()
         txtOrderNumber.Clear()
-        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
+        btnHistryLoad()
+
     End Sub
 
     Private Sub txtFirstName_History_KeyUp(sender As Object, e As KeyEventArgs) Handles txtFirstName_History.KeyUp
@@ -206,6 +214,35 @@ ORDER BY c.order_id asc")
     End Sub
 
     Private Sub txtOrderNumber_KeyUp(sender As Object, e As KeyEventArgs) Handles txtOrderNumber.KeyUp
-        SearchOrder(txtCusID_History.Text, txtFirstName_History.Text, txtOrderNumber.Text)
+
+        txtFirstName_History.Clear()
+        txtCusID_History.Clear()
+        SearchOrderIdOnly(txtOrderNumber.Text)
+
     End Sub
+
+    Private Sub SearchOrderIdOnly(strOrderID As String)
+
+        DB.AddParam("@order_id", strOrderID)
+
+        DB.ExecuteQuery("SELECT distinct o.order_id as 'Order ID', c.customer_id as 'Customer ID', 
+Cus.first_name as 'First Name', 
+m.item_name as 'Item', m.price as 'Price', 
+o.quantity as 'Order Quantity', p.total_price as 'Total', p.tax as 'Tax',
+p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',
+c.order_date as 'Order Date' 
+FROM order_item as o
+JOIN customer_order as c ON c.order_id = o.order_id 
+left JOIN menu as m ON o.item_id = m.item_id 
+left JOIN payment as p ON p.order_id = c.order_id 
+left JOIN customer as Cus ON c.customer_id = Cus.customer_id 
+WHERE o.order_id = ?")
+        If DB.DBException <> String.Empty Then
+            MessageBox.Show(DB.DBException)
+            Exit Sub
+        End If
+
+        dgvHistory.DataSource = DB.DBDataTable
+    End Sub
+
 End Class

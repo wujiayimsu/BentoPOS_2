@@ -4,9 +4,11 @@
     Public decDiscountRate As Decimal
     Public dtLoadOrder As New DataTable
     Public strPayMethod As String
+    Public intSplitCount As Integer
+    Public strDiscountID As String = String.Empty
 
     Public Sub SearchOpenTOGO(strStatus As String, strType As String)
-        frmOrdering_Type.pnlOpenTakeOut.Controls.Clear()
+        'frmOrdering_Type.pnlOpenTakeOut.Controls.Clear()
 
         Dim dtOpenOrder As New DataTable
         strStatus = "open"
@@ -32,7 +34,7 @@
                 btnOpenOrder.Size = New Size(120, 35)
                 btnOpenOrder.Font = New System.Drawing.Font("Calibri", 10, FontStyle.Bold)
 
-                frmOrdering_Type.pnlOpenTakeOut.Controls.Add(btnOpenOrder)
+                'frmOrdering_Type.pnlOpenTakeOut.Controls.Add(btnOpenOrder)
 
             Next
 
