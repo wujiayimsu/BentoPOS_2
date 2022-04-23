@@ -22,8 +22,8 @@ Partial Class frmOrdering_Type
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlDineIn = New System.Windows.Forms.Panel()
         Me.btnTable7 = New System.Windows.Forms.Button()
         Me.btnTable8 = New System.Windows.Forms.Button()
@@ -93,7 +93,7 @@ Partial Class frmOrdering_Type
         Me.pnlDineIn.Controls.Add(Me.pnlSofa2)
         Me.pnlDineIn.Controls.Add(Me.pnlSofa1)
         Me.pnlDineIn.Controls.Add(Me.pnlSofa3)
-        Me.pnlDineIn.Location = New System.Drawing.Point(144, 97)
+        Me.pnlDineIn.Location = New System.Drawing.Point(145, 93)
         Me.pnlDineIn.Name = "pnlDineIn"
         Me.pnlDineIn.Size = New System.Drawing.Size(995, 547)
         Me.pnlDineIn.TabIndex = 33
@@ -506,7 +506,7 @@ Partial Class frmOrdering_Type
         '
         Me.pnlHistory.Controls.Add(Me.pnlHisotryCtrl)
         Me.pnlHistory.Controls.Add(Me.dgvHistory)
-        Me.pnlHistory.Location = New System.Drawing.Point(143, 92)
+        Me.pnlHistory.Location = New System.Drawing.Point(145, 93)
         Me.pnlHistory.Name = "pnlHistory"
         Me.pnlHistory.Size = New System.Drawing.Size(996, 572)
         Me.pnlHistory.TabIndex = 1
@@ -602,9 +602,9 @@ Partial Class frmOrdering_Type
         'dgvHistory
         '
         Me.dgvHistory.AllowUserToOrderColumns = True
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -615,14 +615,14 @@ Partial Class frmOrdering_Type
         Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dgvHistory.Location = New System.Drawing.Point(0, 101)
         Me.dgvHistory.Name = "dgvHistory"

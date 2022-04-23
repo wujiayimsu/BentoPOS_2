@@ -46,6 +46,9 @@ Partial Class frmOrdering
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblDiscountRateInfo = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblPaymentMeth = New System.Windows.Forms.Label()
+        Me.lblSplit = New System.Windows.Forms.Label()
+        Me.lblSplitAmt = New System.Windows.Forms.Label()
         Me.btnDuplicate = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnPay = New System.Windows.Forms.Button()
@@ -61,9 +64,6 @@ Partial Class frmOrdering
         Me.lblCustomerID = New System.Windows.Forms.Label()
         Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.lblOrderType = New System.Windows.Forms.Label()
-        Me.lblPaymentMeth = New System.Windows.Forms.Label()
-        Me.lblSplit = New System.Windows.Forms.Label()
-        Me.lblSplitAmt = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.pnlOrderItem.SuspendLayout()
         Me.pnlRibbon.SuspendLayout()
@@ -315,6 +315,39 @@ Partial Class frmOrdering
         Me.Label1.TabIndex = 59
         Me.Label1.Text = "ID"
         '
+        'lblPaymentMeth
+        '
+        Me.lblPaymentMeth.AutoSize = True
+        Me.lblPaymentMeth.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPaymentMeth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblPaymentMeth.Location = New System.Drawing.Point(219, 658)
+        Me.lblPaymentMeth.Name = "lblPaymentMeth"
+        Me.lblPaymentMeth.Size = New System.Drawing.Size(93, 29)
+        Me.lblPaymentMeth.TabIndex = 60
+        Me.lblPaymentMeth.Text = "Method"
+        '
+        'lblSplit
+        '
+        Me.lblSplit.AutoSize = True
+        Me.lblSplit.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSplit.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblSplit.Location = New System.Drawing.Point(211, 690)
+        Me.lblSplit.Name = "lblSplit"
+        Me.lblSplit.Size = New System.Drawing.Size(169, 26)
+        Me.lblSplit.TabIndex = 61
+        Me.lblSplit.Text = "Split Equally by #: "
+        '
+        'lblSplitAmt
+        '
+        Me.lblSplitAmt.AutoSize = True
+        Me.lblSplitAmt.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSplitAmt.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblSplitAmt.Location = New System.Drawing.Point(370, 690)
+        Me.lblSplitAmt.Name = "lblSplitAmt"
+        Me.lblSplitAmt.Size = New System.Drawing.Size(51, 26)
+        Me.lblSplitAmt.TabIndex = 62
+        Me.lblSplitAmt.Text = "0.00"
+        '
         'btnDuplicate
         '
         Me.btnDuplicate.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -465,9 +498,8 @@ Partial Class frmOrdering
         Me.lblFirstName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblFirstName.Location = New System.Drawing.Point(101, 9)
         Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(49, 19)
+        Me.lblFirstName.Size = New System.Drawing.Size(0, 19)
         Me.lblFirstName.TabIndex = 54
-        Me.lblFirstName.Text = "Name"
         '
         'lblCustomerID
         '
@@ -501,39 +533,6 @@ Partial Class frmOrdering
         Me.lblOrderType.Size = New System.Drawing.Size(73, 19)
         Me.lblOrderType.TabIndex = 50
         Me.lblOrderType.Text = "Table No."
-        '
-        'lblPaymentMeth
-        '
-        Me.lblPaymentMeth.AutoSize = True
-        Me.lblPaymentMeth.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPaymentMeth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblPaymentMeth.Location = New System.Drawing.Point(219, 658)
-        Me.lblPaymentMeth.Name = "lblPaymentMeth"
-        Me.lblPaymentMeth.Size = New System.Drawing.Size(93, 29)
-        Me.lblPaymentMeth.TabIndex = 60
-        Me.lblPaymentMeth.Text = "Method"
-        '
-        'lblSplit
-        '
-        Me.lblSplit.AutoSize = True
-        Me.lblSplit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSplit.ForeColor = System.Drawing.Color.Firebrick
-        Me.lblSplit.Location = New System.Drawing.Point(239, 696)
-        Me.lblSplit.Name = "lblSplit"
-        Me.lblSplit.Size = New System.Drawing.Size(135, 19)
-        Me.lblSplit.TabIndex = 61
-        Me.lblSplit.Text = "Split Equally by #: "
-        '
-        'lblSplitAmt
-        '
-        Me.lblSplitAmt.AutoSize = True
-        Me.lblSplitAmt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSplitAmt.ForeColor = System.Drawing.Color.Firebrick
-        Me.lblSplitAmt.Location = New System.Drawing.Point(370, 696)
-        Me.lblSplitAmt.Name = "lblSplitAmt"
-        Me.lblSplitAmt.Size = New System.Drawing.Size(37, 19)
-        Me.lblSplitAmt.TabIndex = 62
-        Me.lblSplitAmt.Text = "0.00"
         '
         'frmOrdering
         '

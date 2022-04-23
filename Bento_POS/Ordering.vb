@@ -119,6 +119,7 @@ Public Class frmOrdering
         tax()
         DiscountedAmt()
         Total()
+        SplitEqually()
     End Sub
 
     Sub ItemCount()
@@ -205,6 +206,7 @@ Public Class frmOrdering
         lstQuantity.Items.Clear()
         lstItemID.Items.Clear()
         decDiscountRate = 0.00
+        intSplitCount = 0
         strPayMethod = String.Empty
         ButtomFiguresDisplay()
     End Sub
@@ -325,6 +327,9 @@ Public Class frmOrdering
     End Sub
 
     Public Sub InsertPayment()
+        'split bill function works now table insertation needs to be update
+        ' discount function needs to be update
+
         Dim strOrderID As String = intOrderID
         Dim strTotal As String = lblTotal.Text
         Dim strTax As String = lblTax.Text
@@ -337,7 +342,7 @@ Public Class frmOrdering
         DB.AddParam("total_price", strTotal)    '2 param
         DB.AddParam("tax", strTax)    '3 param
 
-        If CDec(lblDiscAmt.Text) <= 0 Then
+        If decDiscountRate <= 0 Then
             DB.AddParam("@discount_id", DBNull.Value)   '4 param
             DB.AddParam("@discounted_total", "0.00")    '5 param
         Else
@@ -391,4 +396,37 @@ Public Class frmOrdering
         rs.ResizeAllControls(Me)
     End Sub
 
+    Private Sub btnSplitEqual_Click(sender As Object, e As EventArgs) Handles btnSplitEqual.Click
+
+        If CDec(lblTotal.Text) = 0 Then
+            MessageBox.Show("No Item was Selected")
+
+        Else
+            If intSplitCount >= 1 Then
+                intSplitCount = 0
+                ButtomFiguresDisplay()
+            Else
+                Dim frmSplit As New Order_Split
+                Order_Split.ShowDialog()
+                ButtomFiguresDisplay()
+            End If
+        End If
+
+    End Sub
+
+    Sub SplitEqually()
+
+        Dim decSplitAmt As Decimal
+
+        If intSplitCount > 0 Then
+            decSplitAmt = CDec(lblTotal.Text) / intSplitCount
+
+            lblSplit.Text = "Split Equally by " & intSplitCount & " :"
+            lblSplitAmt.Text = "$ " & decSplitAmt.ToString("N2")
+        Else
+            lblSplit.Text = String.Empty
+            lblSplitAmt.Text = String.Empty
+
+        End If
+    End Sub
 End Class

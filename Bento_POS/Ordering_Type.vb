@@ -142,7 +142,7 @@ Public Class frmOrdering_Type
         pnlHistory.Visible = True
 
 
-        DB.ExecuteQuery("SELECT c.order_id as 'Order ID', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.payment_id as 'Payment ID',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date',c.order_time as 'Order Time' FROM customer_order as c LEFT JOIN order_item as o ON c.order_id = o.order_id LEFT JOIN menu as m ON o.item_id = m.item_id LEFT JOIN payment as p ON p.order_id = c.order_id LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id ORDER BY c.order_id asc")
+        DB.ExecuteQuery("SELECT c.order_id as 'Order ID',c.order_type as 'Order Type', c.customer_id as 'Customer ID', Cus.first_name as 'First Name', m.item_name as 'Item', m.price as 'Price', o.quantity as 'Order Quantity',p.discounted_total as 'Discounted Amount',p.payment_method as 'Payment Method', p.amount_paid as 'Amount Paid',c.order_date as 'Order Date' FROM customer_order as c LEFT JOIN order_item as o ON c.order_id = o.order_id LEFT JOIN menu as m ON o.item_id = m.item_id LEFT JOIN payment as p ON p.order_id = c.order_id LEFT JOIN customer as Cus ON c.customer_id = Cus.customer_id ORDER BY c.order_id asc")
 
         If DB.DBException <> String.Empty Then
             MessageBox.Show(DB.DBException)

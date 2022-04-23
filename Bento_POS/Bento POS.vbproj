@@ -95,6 +95,12 @@
     <Compile Include="Order_Payment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Order_Split.Designer.vb">
+      <DependentUpon>Order_Split.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Split.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PublicVars.vb" />
     <Compile Include="Ordering_Type.Designer.vb">
       <DependentUpon>Ordering_Type.vb</DependentUpon>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Payment.resx">
       <DependentUpon>Order_Payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Split.resx">
+      <DependentUpon>Order_Split.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

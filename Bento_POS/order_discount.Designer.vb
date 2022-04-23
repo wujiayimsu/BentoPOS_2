@@ -39,9 +39,9 @@ Partial Class frmOrder_discount
         '
         'pnlButtonGroup
         '
-        Me.pnlButtonGroup.Location = New System.Drawing.Point(34, 320)
+        Me.pnlButtonGroup.Location = New System.Drawing.Point(34, 282)
         Me.pnlButtonGroup.Name = "pnlButtonGroup"
-        Me.pnlButtonGroup.Size = New System.Drawing.Size(444, 119)
+        Me.pnlButtonGroup.Size = New System.Drawing.Size(444, 157)
         Me.pnlButtonGroup.TabIndex = 0
         '
         'pnlDiscountInfo
@@ -52,7 +52,7 @@ Partial Class frmOrder_discount
         Me.pnlDiscountInfo.Controls.Add(Me.Label1)
         Me.pnlDiscountInfo.Location = New System.Drawing.Point(34, 169)
         Me.pnlDiscountInfo.Name = "pnlDiscountInfo"
-        Me.pnlDiscountInfo.Size = New System.Drawing.Size(444, 126)
+        Me.pnlDiscountInfo.Size = New System.Drawing.Size(444, 107)
         Me.pnlDiscountInfo.TabIndex = 2
         '
         'lblDescription
