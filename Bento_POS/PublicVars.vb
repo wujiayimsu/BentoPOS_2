@@ -5,6 +5,7 @@
     Public dtLoadOrder As New DataTable
     Public strPayMethod As String
     Public intSplitCount As Integer
+    Public strDiscountID As String = String.Empty
 
     Public Sub SearchOpenTOGO(strStatus As String, strType As String)
         'frmOrdering_Type.pnlOpenTakeOut.Controls.Clear()

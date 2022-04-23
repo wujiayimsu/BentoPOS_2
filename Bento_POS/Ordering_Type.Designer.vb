@@ -22,16 +22,27 @@ Partial Class frmOrdering_Type
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlDineIn = New System.Windows.Forms.Panel()
+        Me.btnTable7 = New System.Windows.Forms.Button()
+        Me.btnTable8 = New System.Windows.Forms.Button()
+        Me.btnTable6 = New System.Windows.Forms.Button()
+        Me.btnTable5 = New System.Windows.Forms.Button()
+        Me.btnTable4 = New System.Windows.Forms.Button()
+        Me.btnTable3 = New System.Windows.Forms.Button()
+        Me.btnTable2 = New System.Windows.Forms.Button()
+        Me.btnTable1 = New System.Windows.Forms.Button()
         Me.pnlSofa2 = New System.Windows.Forms.Panel()
         Me.pnlSofa1 = New System.Windows.Forms.Panel()
         Me.pnlSofa3 = New System.Windows.Forms.Panel()
         Me.pnlLeftSide = New System.Windows.Forms.Panel()
         Me.lblStaffID = New System.Windows.Forms.Label()
+        Me.pnl_btnExit = New System.Windows.Forms.Panel()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.pnl_btnHistory = New System.Windows.Forms.Panel()
+        Me.pnl__btnTakeOut = New System.Windows.Forms.Panel()
+        Me.pnl_btnDineIn = New System.Windows.Forms.Panel()
         Me.btnHistory = New System.Windows.Forms.Button()
         Me.btnDineIn = New System.Windows.Forms.Button()
         Me.btnTakeOut = New System.Windows.Forms.Button()
@@ -39,6 +50,8 @@ Partial Class frmOrdering_Type
         Me.lblOrderID = New System.Windows.Forms.Label()
         Me.txtCustomerID = New System.Windows.Forms.TextBox()
         Me.lblCustomerID = New System.Windows.Forms.Label()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.txtPhone = New System.Windows.Forms.TextBox()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
@@ -54,21 +67,8 @@ Partial Class frmOrdering_Type
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtOrderNumber = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgvHistory = New System.Windows.Forms.DataGridView()
-        Me.btnNext = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.btnClear_History = New System.Windows.Forms.Button()
-        Me.pnl_btnExit = New System.Windows.Forms.Panel()
-        Me.pnl__btnTakeOut = New System.Windows.Forms.Panel()
-        Me.pnl_btnDineIn = New System.Windows.Forms.Panel()
-        Me.btnTable7 = New System.Windows.Forms.Button()
-        Me.btnTable8 = New System.Windows.Forms.Button()
-        Me.btnTable6 = New System.Windows.Forms.Button()
-        Me.btnTable5 = New System.Windows.Forms.Button()
-        Me.btnTable4 = New System.Windows.Forms.Button()
-        Me.btnTable3 = New System.Windows.Forms.Button()
-        Me.btnTable2 = New System.Windows.Forms.Button()
-        Me.btnTable1 = New System.Windows.Forms.Button()
+        Me.dgvHistory = New System.Windows.Forms.DataGridView()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.lblDeveloper = New System.Windows.Forms.Label()
         Me.pnlDineIn.SuspendLayout()
@@ -97,6 +97,110 @@ Partial Class frmOrdering_Type
         Me.pnlDineIn.Name = "pnlDineIn"
         Me.pnlDineIn.Size = New System.Drawing.Size(995, 547)
         Me.pnlDineIn.TabIndex = 33
+        '
+        'btnTable7
+        '
+        Me.btnTable7.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable7.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable7.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable7.ForeColor = System.Drawing.Color.Black
+        Me.btnTable7.Location = New System.Drawing.Point(862, 360)
+        Me.btnTable7.Name = "btnTable7"
+        Me.btnTable7.Size = New System.Drawing.Size(124, 106)
+        Me.btnTable7.TabIndex = 36
+        Me.btnTable7.Text = "Table 7"
+        Me.btnTable7.UseVisualStyleBackColor = False
+        '
+        'btnTable8
+        '
+        Me.btnTable8.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable8.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable8.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable8.ForeColor = System.Drawing.Color.Black
+        Me.btnTable8.Location = New System.Drawing.Point(862, 482)
+        Me.btnTable8.Name = "btnTable8"
+        Me.btnTable8.Size = New System.Drawing.Size(124, 62)
+        Me.btnTable8.TabIndex = 35
+        Me.btnTable8.Text = "Table 8"
+        Me.btnTable8.UseVisualStyleBackColor = False
+        '
+        'btnTable6
+        '
+        Me.btnTable6.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable6.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable6.ForeColor = System.Drawing.Color.Black
+        Me.btnTable6.Location = New System.Drawing.Point(862, 218)
+        Me.btnTable6.Name = "btnTable6"
+        Me.btnTable6.Size = New System.Drawing.Size(126, 62)
+        Me.btnTable6.TabIndex = 34
+        Me.btnTable6.Text = "Table 6"
+        Me.btnTable6.UseVisualStyleBackColor = False
+        '
+        'btnTable5
+        '
+        Me.btnTable5.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable5.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable5.ForeColor = System.Drawing.Color.Black
+        Me.btnTable5.Location = New System.Drawing.Point(862, 91)
+        Me.btnTable5.Name = "btnTable5"
+        Me.btnTable5.Size = New System.Drawing.Size(124, 106)
+        Me.btnTable5.TabIndex = 33
+        Me.btnTable5.Text = "Table 5"
+        Me.btnTable5.UseVisualStyleBackColor = False
+        '
+        'btnTable4
+        '
+        Me.btnTable4.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btnTable4.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable4.ForeColor = System.Drawing.Color.Black
+        Me.btnTable4.Location = New System.Drawing.Point(642, 91)
+        Me.btnTable4.Name = "btnTable4"
+        Me.btnTable4.Size = New System.Drawing.Size(126, 106)
+        Me.btnTable4.TabIndex = 32
+        Me.btnTable4.Text = "Table 4"
+        Me.btnTable4.UseVisualStyleBackColor = False
+        '
+        'btnTable3
+        '
+        Me.btnTable3.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable3.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable3.ForeColor = System.Drawing.Color.Black
+        Me.btnTable3.Location = New System.Drawing.Point(430, 91)
+        Me.btnTable3.Name = "btnTable3"
+        Me.btnTable3.Size = New System.Drawing.Size(126, 106)
+        Me.btnTable3.TabIndex = 31
+        Me.btnTable3.Text = "Table 3"
+        Me.btnTable3.UseVisualStyleBackColor = False
+        '
+        'btnTable2
+        '
+        Me.btnTable2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable2.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable2.ForeColor = System.Drawing.Color.Black
+        Me.btnTable2.Location = New System.Drawing.Point(213, 91)
+        Me.btnTable2.Name = "btnTable2"
+        Me.btnTable2.Size = New System.Drawing.Size(126, 106)
+        Me.btnTable2.TabIndex = 30
+        Me.btnTable2.Text = "Table 2"
+        Me.btnTable2.UseVisualStyleBackColor = False
+        '
+        'btnTable1
+        '
+        Me.btnTable1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnTable1.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
+        Me.btnTable1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable1.ForeColor = System.Drawing.Color.Black
+        Me.btnTable1.Location = New System.Drawing.Point(52, 91)
+        Me.btnTable1.Name = "btnTable1"
+        Me.btnTable1.Size = New System.Drawing.Size(68, 106)
+        Me.btnTable1.TabIndex = 25
+        Me.btnTable1.Text = "Table 1"
+        Me.btnTable1.UseVisualStyleBackColor = False
         '
         'pnlSofa2
         '
@@ -152,6 +256,15 @@ Partial Class frmOrdering_Type
         Me.lblStaffID.TabIndex = 49
         Me.lblStaffID.Text = "Staff ID: 3, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   Welcome!"
         '
+        'pnl_btnExit
+        '
+        Me.pnl_btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnl_btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
+        Me.pnl_btnExit.Location = New System.Drawing.Point(0, 323)
+        Me.pnl_btnExit.Name = "pnl_btnExit"
+        Me.pnl_btnExit.Size = New System.Drawing.Size(10, 46)
+        Me.pnl_btnExit.TabIndex = 48
+        '
         'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(108, Byte), Integer))
@@ -176,6 +289,24 @@ Partial Class frmOrdering_Type
         Me.pnl_btnHistory.Name = "pnl_btnHistory"
         Me.pnl_btnHistory.Size = New System.Drawing.Size(10, 46)
         Me.pnl_btnHistory.TabIndex = 44
+        '
+        'pnl__btnTakeOut
+        '
+        Me.pnl__btnTakeOut.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnl__btnTakeOut.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumColor
+        Me.pnl__btnTakeOut.Location = New System.Drawing.Point(0, 171)
+        Me.pnl__btnTakeOut.Name = "pnl__btnTakeOut"
+        Me.pnl__btnTakeOut.Size = New System.Drawing.Size(10, 46)
+        Me.pnl__btnTakeOut.TabIndex = 37
+        '
+        'pnl_btnDineIn
+        '
+        Me.pnl_btnDineIn.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
+        Me.pnl_btnDineIn.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
+        Me.pnl_btnDineIn.Location = New System.Drawing.Point(0, 95)
+        Me.pnl_btnDineIn.Name = "pnl_btnDineIn"
+        Me.pnl_btnDineIn.Size = New System.Drawing.Size(10, 45)
+        Me.pnl_btnDineIn.TabIndex = 41
         '
         'btnHistory
         '
@@ -269,6 +400,32 @@ Partial Class frmOrdering_Type
         Me.lblCustomerID.Size = New System.Drawing.Size(92, 19)
         Me.lblCustomerID.TabIndex = 47
         Me.lblCustomerID.Text = "Customer ID"
+        '
+        'btnNext
+        '
+        Me.btnNext.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnNext.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
+        Me.btnNext.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNext.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnNext.Location = New System.Drawing.Point(336, 360)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(100, 40)
+        Me.btnNext.TabIndex = 43
+        Me.btnNext.Text = "Next"
+        Me.btnNext.UseVisualStyleBackColor = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
+        Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.White
+        Me.btnClear.Location = New System.Drawing.Point(517, 360)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(110, 40)
+        Me.btnClear.TabIndex = 17
+        Me.btnClear.Text = "CLEAR"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'txtPhone
         '
@@ -405,62 +562,6 @@ Partial Class frmOrdering_Type
         Me.Label1.TabIndex = 59
         Me.Label1.Text = "Order ID"
         '
-        'dgvHistory
-        '
-        Me.dgvHistory.AllowUserToOrderColumns = True
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgvHistory.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.dgvHistory.Location = New System.Drawing.Point(0, 101)
-        Me.dgvHistory.Name = "dgvHistory"
-        Me.dgvHistory.Size = New System.Drawing.Size(995, 468)
-        Me.dgvHistory.TabIndex = 0
-        '
-        'btnNext
-        '
-        Me.btnNext.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnNext.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumGreen
-        Me.btnNext.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNext.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnNext.Location = New System.Drawing.Point(336, 360)
-        Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(100, 40)
-        Me.btnNext.TabIndex = 43
-        Me.btnNext.Text = "Next"
-        Me.btnNext.UseVisualStyleBackColor = False
-        '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.btnClear.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(517, 360)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(110, 40)
-        Me.btnClear.TabIndex = 17
-        Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
         'btnClear_History
         '
         Me.btnClear_History.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -474,136 +575,35 @@ Partial Class frmOrdering_Type
         Me.btnClear_History.Text = "CLEAR"
         Me.btnClear_History.UseVisualStyleBackColor = False
         '
-        'pnl_btnExit
+        'dgvHistory
         '
-        Me.pnl_btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
-        Me.pnl_btnExit.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumBrown
-        Me.pnl_btnExit.Location = New System.Drawing.Point(0, 323)
-        Me.pnl_btnExit.Name = "pnl_btnExit"
-        Me.pnl_btnExit.Size = New System.Drawing.Size(10, 46)
-        Me.pnl_btnExit.TabIndex = 48
-        '
-        'pnl__btnTakeOut
-        '
-        Me.pnl__btnTakeOut.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
-        Me.pnl__btnTakeOut.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumColor
-        Me.pnl__btnTakeOut.Location = New System.Drawing.Point(0, 171)
-        Me.pnl__btnTakeOut.Name = "pnl__btnTakeOut"
-        Me.pnl__btnTakeOut.Size = New System.Drawing.Size(10, 46)
-        Me.pnl__btnTakeOut.TabIndex = 37
-        '
-        'pnl_btnDineIn
-        '
-        Me.pnl_btnDineIn.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(8, Byte), Integer))
-        Me.pnl_btnDineIn.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
-        Me.pnl_btnDineIn.Location = New System.Drawing.Point(0, 95)
-        Me.pnl_btnDineIn.Name = "pnl_btnDineIn"
-        Me.pnl_btnDineIn.Size = New System.Drawing.Size(10, 45)
-        Me.pnl_btnDineIn.TabIndex = 41
-        '
-        'btnTable7
-        '
-        Me.btnTable7.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable7.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable7.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable7.ForeColor = System.Drawing.Color.Black
-        Me.btnTable7.Location = New System.Drawing.Point(862, 360)
-        Me.btnTable7.Name = "btnTable7"
-        Me.btnTable7.Size = New System.Drawing.Size(124, 106)
-        Me.btnTable7.TabIndex = 36
-        Me.btnTable7.Text = "Table 7"
-        Me.btnTable7.UseVisualStyleBackColor = False
-        '
-        'btnTable8
-        '
-        Me.btnTable8.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable8.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable8.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable8.ForeColor = System.Drawing.Color.Black
-        Me.btnTable8.Location = New System.Drawing.Point(862, 482)
-        Me.btnTable8.Name = "btnTable8"
-        Me.btnTable8.Size = New System.Drawing.Size(124, 62)
-        Me.btnTable8.TabIndex = 35
-        Me.btnTable8.Text = "Table 8"
-        Me.btnTable8.UseVisualStyleBackColor = False
-        '
-        'btnTable6
-        '
-        Me.btnTable6.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable6.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable6.ForeColor = System.Drawing.Color.Black
-        Me.btnTable6.Location = New System.Drawing.Point(862, 218)
-        Me.btnTable6.Name = "btnTable6"
-        Me.btnTable6.Size = New System.Drawing.Size(126, 62)
-        Me.btnTable6.TabIndex = 34
-        Me.btnTable6.Text = "Table 6"
-        Me.btnTable6.UseVisualStyleBackColor = False
-        '
-        'btnTable5
-        '
-        Me.btnTable5.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable5.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable5.ForeColor = System.Drawing.Color.Black
-        Me.btnTable5.Location = New System.Drawing.Point(862, 91)
-        Me.btnTable5.Name = "btnTable5"
-        Me.btnTable5.Size = New System.Drawing.Size(124, 106)
-        Me.btnTable5.TabIndex = 33
-        Me.btnTable5.Text = "Table 5"
-        Me.btnTable5.UseVisualStyleBackColor = False
-        '
-        'btnTable4
-        '
-        Me.btnTable4.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.btnTable4.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable4.ForeColor = System.Drawing.Color.Black
-        Me.btnTable4.Location = New System.Drawing.Point(642, 91)
-        Me.btnTable4.Name = "btnTable4"
-        Me.btnTable4.Size = New System.Drawing.Size(126, 106)
-        Me.btnTable4.TabIndex = 32
-        Me.btnTable4.Text = "Table 4"
-        Me.btnTable4.UseVisualStyleBackColor = False
-        '
-        'btnTable3
-        '
-        Me.btnTable3.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable3.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable3.ForeColor = System.Drawing.Color.Black
-        Me.btnTable3.Location = New System.Drawing.Point(430, 91)
-        Me.btnTable3.Name = "btnTable3"
-        Me.btnTable3.Size = New System.Drawing.Size(126, 106)
-        Me.btnTable3.TabIndex = 31
-        Me.btnTable3.Text = "Table 3"
-        Me.btnTable3.UseVisualStyleBackColor = False
-        '
-        'btnTable2
-        '
-        Me.btnTable2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable2.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable2.ForeColor = System.Drawing.Color.Black
-        Me.btnTable2.Location = New System.Drawing.Point(213, 91)
-        Me.btnTable2.Name = "btnTable2"
-        Me.btnTable2.Size = New System.Drawing.Size(126, 106)
-        Me.btnTable2.TabIndex = 30
-        Me.btnTable2.Text = "Table 2"
-        Me.btnTable2.UseVisualStyleBackColor = False
-        '
-        'btnTable1
-        '
-        Me.btnTable1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnTable1.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnTable1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable1.ForeColor = System.Drawing.Color.Black
-        Me.btnTable1.Location = New System.Drawing.Point(52, 91)
-        Me.btnTable1.Name = "btnTable1"
-        Me.btnTable1.Size = New System.Drawing.Size(68, 106)
-        Me.btnTable1.TabIndex = 25
-        Me.btnTable1.Text = "Table 1"
-        Me.btnTable1.UseVisualStyleBackColor = False
+        Me.dgvHistory.AllowUserToOrderColumns = True
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvHistory.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvHistory.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvHistory.GridColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.dgvHistory.Location = New System.Drawing.Point(0, 101)
+        Me.dgvHistory.Name = "dgvHistory"
+        Me.dgvHistory.Size = New System.Drawing.Size(995, 468)
+        Me.dgvHistory.TabIndex = 0
         '
         'pnlTitle
         '

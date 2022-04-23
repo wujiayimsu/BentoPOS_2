@@ -1,8 +1,9 @@
 ﻿Public Class frmOrder_discount
     Private DB As New DBAccess
-    Dim dtDiscount As New DataTable
+    Public dtAllDiscount As New DataTable
+    Public dtSingleDiscount As New DataTable
     Dim rs As New Resizer
-    Public strDiscountID As String
+    'Public intDiscountID As String
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
         rs.FindAllControls(Me)
@@ -27,10 +28,10 @@
             Exit Sub
         End If
 
-        dtDiscount = DB.DBDataTable
+        dtAllDiscount = DB.DBDataTable
 
         Try
-            For Each row In dtDiscount.Rows
+            For Each row In dtAllDiscount.Rows
                 If row("is_active") = 1 Then
                     Dim btnDiscountGroup As New Button
 
@@ -62,13 +63,15 @@
             Exit Sub
         End If
 
-        dtDiscount = DB.DBDataTable
+        dtSingleDiscount = DB.DBDataTable
 
         Try
-            For Each row In dtDiscount.Rows
+            For Each row In dtSingleDiscount.Rows
                 strDiscount = row("discount")
                 lblDiscount.Text = strDiscount
                 strDiscountID = row("discount_id")
+                lblDiscountID.Text = strDiscountID
+
             Next
             lblDescription.Text = strDescription
         Catch ex As Exception

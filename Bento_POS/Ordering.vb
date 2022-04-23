@@ -5,6 +5,7 @@ Public Class frmOrdering
     Dim intOrderID As Integer
     Dim dtOrderItem As New DataTable
     Dim decSplitAmt As Decimal
+    Dim decDiscountAmt As Decimal = 0.00
 
 
 
@@ -171,7 +172,6 @@ Public Class frmOrdering
 
     End Sub
     Sub DiscountedAmt()
-        Dim decDiscountAmt As Decimal = 0.00
 
         decDiscountAmt = CDec(lblSubTotal.Text) * decDiscountRate
         lblDiscAmt.Text = ("-" & decDiscountAmt.ToString("N2"))
@@ -355,12 +355,23 @@ Public Class frmOrdering
         Dim strOrderID As String = intOrderID
         Dim strTotal As String = lblTotal.Text
         Dim strTax As String = lblTax.Text
-        Dim strDiscountID As String = frmOrder_discount.strDiscountID
-        Dim strDiscountedTotal As String = lblDiscAmt.Text
+        ' Dim intDiscountID As Integer = CInt(frmOrder_discount.lblDiscountID.Text)
+        Dim strDiscountedTotal As String = decDiscountAmt
         Dim strAmountPaid As String = lblTotal.Text
         Dim strPaymentMethod As String = lblPaymentMeth.Text
-        Dim intCounter As Integer = intSplitCount + 1
+        Dim intCounter As Integer
         Dim strSplitAmt As String = decSplitAmt
+
+        If intSplitCount = 0 Then
+            intCounter = intSplitCount + 1
+        Else
+            If intSplitCount = 1 Then
+                intCounter = 1
+            Else
+                intCounter = intSplitCount
+            End If
+
+        End If
 
         Select Case intCounter
             Case >= 2
@@ -369,14 +380,13 @@ Public Class frmOrdering
                     DB.AddParam("total_price", strTotal)    '2 param
                     DB.AddParam("tax", strTax)    '3 param
 
-                    If decDiscountRate <= 0 Then
+                    If strDiscountID = String.Empty Then
                         DB.AddParam("@discount_id", DBNull.Value)   '4 param
                         DB.AddParam("@discounted_total", strDiscountedTotal)    '5 param
                     Else
                         DB.AddParam("@discount_id", strDiscountID)
                         DB.AddParam("@discounted_total", strDiscountedTotal)
                     End If
-
 
                     DB.AddParam("@amount_paid", strSplitAmt)     '6 param
                     DB.AddParam("payment_method", strPaymentMethod)      '7 param
@@ -394,7 +404,7 @@ Public Class frmOrdering
                 DB.AddParam("total_price", strTotal)    '2 param
                 DB.AddParam("tax", strTax)    '3 param
 
-                If decDiscountRate <= 0 Then
+                If strDiscountID = String.Empty Then
                     DB.AddParam("@discount_id", DBNull.Value)   '4 param
                     DB.AddParam("@discounted_total", strDiscountedTotal)    '5 param
                 Else
@@ -420,31 +430,31 @@ Public Class frmOrdering
 
     '*********************************************  OTHER FUNCTIONS   *********************************************************'
 
-    Sub SelectedAll()
-        If lstOrderItem.SelectedIndex > -1 Then
-            Dim intSelect As Integer = lstOrderItem.SelectedIndex
-            lstPrice.SelectedIndex = intSelect
-            lstQuantity.SelectedIndex = intSelect
-            lstItemID.SelectedIndex = intSelect
-        End If
+    'Sub SelectedAll()
+    '    If lstOrderItem.SelectedIndex > -1 Then
+    '        Dim intSelect As Integer = lstOrderItem.SelectedIndex
+    '        lstPrice.SelectedIndex = intSelect
+    '        lstQuantity.SelectedIndex = intSelect
+    '        lstItemID.SelectedIndex = intSelect
+    '    End If
 
 
-    End Sub
+    'End Sub
 
-    Private Sub lstOrderItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstOrderItem.SelectedIndexChanged
-        SelectedAll()
-    End Sub
+    'Private Sub lstOrderItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstOrderItem.SelectedIndexChanged
+    '    SelectedAll()
+    'End Sub
 
-    Private Sub lstPrice_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstPrice.SelectedIndexChanged
-        SelectedAll()
-    End Sub
+    'Private Sub lstPrice_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstPrice.SelectedIndexChanged
+    '    SelectedAll()
+    'End Sub
 
-    Private Sub lstQuantity_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstQuantity.SelectedIndexChanged
-        SelectedAll()
-    End Sub
-    Private Sub lstItemID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstItemID.SelectedIndexChanged
-        SelectedAll()
-    End Sub
+    'Private Sub lstQuantity_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstQuantity.SelectedIndexChanged
+    '    SelectedAll()
+    'End Sub
+    'Private Sub lstItemID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstItemID.SelectedIndexChanged
+    '    SelectedAll()
+    'End Sub
 
     Private Sub frmOdering_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
