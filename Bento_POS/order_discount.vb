@@ -3,7 +3,6 @@
     Public dtAllDiscount As New DataTable
     Public dtSingleDiscount As New DataTable
     Dim rs As New Resizer
-    'Public intDiscountID As String
     Private Sub order_discount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDiscountbtn()
         rs.FindAllControls(Me)
