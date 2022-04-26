@@ -179,7 +179,7 @@ WHERE c.customer_id LIKE ? and Cus.first_name LIKE? and o.order_id LIKE ?")
     End Sub
     Private Sub btnHistryLoad()
 
-        DB.ExecuteQuery("select co.order_id, co.customer_id, co.order_status, co.order_type, o.quantity, m.item_name,m.price, p.total_price,p.tax,p.discount_id,p.discounted_total,p.amount_paid,p.payment_method
+        DB.ExecuteQuery("SELECT co.order_date as 'Date', co.order_id, co.customer_id, co.order_status, co.order_type, o.quantity, m.item_name,m.price, p.total_price,p.tax,p.discount_id,p.discounted_total,p.amount_paid,p.payment_method
 from customer_order as co
 left join order_item as o on co.order_id = o.order_id
 left join menu as m on o.item_id = m.item_id
@@ -244,5 +244,4 @@ WHERE o.order_id = ?")
 
         dgvHistory.DataSource = DB.DBDataTable
     End Sub
-
 End Class

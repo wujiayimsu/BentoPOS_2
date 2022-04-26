@@ -450,5 +450,9 @@ Public Class frmOrdering
 
     End Sub
 
+    Private Sub lblPaymentMeth_DoubleClick(sender As Object, e As EventArgs) Handles lblPaymentMeth.DoubleClick
+        lblPaymentMeth.Text = String.Empty
+        strPayMethod = String.Empty
 
+    End Sub
 End Class
