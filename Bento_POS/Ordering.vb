@@ -1,4 +1,5 @@
 ﻿'Programmmed by Jiayi Wu
+
 Public Class frmOrdering
     Private DB As New DBAccess
     Dim rs As New Resizer
@@ -99,22 +100,30 @@ Public Class frmOrdering
         '''''''Display ordering item name, quantity and price; Quantity default to one
         Dim strMenuItem As String = Sender.text
         Dim dtMenuItemPrice As DataTable
+        Dim intIndex As Integer = lstOrderItem.FindString(strMenuItem)
 
-        lstOrderItem.Items.Add(strMenuItem)
-        lstQuantity.Items.Add("1")
+        If intIndex = -1 Then
+            lstOrderItem.Items.Add(strMenuItem)
+            lstQuantity.Items.Add("1")
 
-        DB.AddParam("@item_name", strMenuItem)
-        DB.ExecuteQuery("SELECT * FROM menu where item_name = ?")
-        If DB.DBException <> String.Empty Then
-            MessageBox.Show(DB.DBException)
-            Exit Sub
+            DB.AddParam("@item_name", strMenuItem)
+            DB.ExecuteQuery("SELECT * FROM menu where item_name = ?")
+            If DB.DBException <> String.Empty Then
+                MessageBox.Show(DB.DBException)
+                Exit Sub
+            End If
+
+            dtMenuItemPrice = DB.DBDataTable
+            lstPrice.Items.Add(dtMenuItemPrice.Rows(0).Item("price").ToString)
+            lstItemID.Items.Add(dtMenuItemPrice.Rows(0).Item("item_id".ToString))
+
+            ButtomFiguresDisplay()
+        Else
+            lstQuantity.Items(intIndex) += 1
+            ButtomFiguresDisplay()
         End If
 
-        dtMenuItemPrice = DB.DBDataTable
-        lstPrice.Items.Add(dtMenuItemPrice.Rows(0).Item("price").ToString)
-        lstItemID.Items.Add(dtMenuItemPrice.Rows(0).Item("item_id".ToString))
 
-        ButtomFiguresDisplay()
     End Sub
 
     '******************************Button Figure Display*******************************************'
@@ -228,14 +237,8 @@ Public Class frmOrdering
         decDiscountRate = 0.00
         intSplitCount = 0
         strPayMethod = String.Empty
+        lblPaymentMeth.Text = String.Empty
         ButtomFiguresDisplay()
-    End Sub
-
-    Private Sub btnLine_Click(sender As Object, e As EventArgs) Handles btnLine.Click
-        lstOrderItem.Items.Add(strline)
-        lstQuantity.Items.Add(strline)
-        lstPrice.Items.Add(strline)
-        lstItemID.Items.Add(strline)
     End Sub
 
     Private Sub btnRemoveItem_Click(sender As Object, e As EventArgs) Handles btnRemoveItem.Click
@@ -327,25 +330,21 @@ Public Class frmOrdering
             Exit Sub
         End If
 
-        MessageBox.Show("customer order table inserted!")
-
     End Sub
     Public Sub InsertOrderItem()
 
-        For item = 0 To lstItemID.Items.Count - 1
-
+        For item = 0 To lstOrderItem.Items.Count - 1
             DB.AddParam("@order_id", intOrderID)
             DB.AddParam("@item_id", lstItemID.Items(item))
             DB.AddParam("quantity", lstQuantity.Items(item))
 
             DB.ExecuteQuery("INSERT INTO order_item(order_id, item_id, quantity) VALUES(?, ?, ?)")
+
             If DB.DBException <> String.Empty Then
                 MessageBox.Show(DB.DBException)
                 Exit Sub
             End If
         Next
-        MessageBox.Show("order item table inserted!")
-
     End Sub
 
     Public Sub InsertPayment()
@@ -422,40 +421,13 @@ Public Class frmOrdering
                     Exit Sub
                 End If
         End Select
-        MessageBox.Show("payment table inserted!!")
+
     End Sub
 
 
 
 
     '*********************************************  OTHER FUNCTIONS   *********************************************************'
-
-    'Sub SelectedAll()
-    '    If lstOrderItem.SelectedIndex > -1 Then
-    '        Dim intSelect As Integer = lstOrderItem.SelectedIndex
-    '        lstPrice.SelectedIndex = intSelect
-    '        lstQuantity.SelectedIndex = intSelect
-    '        lstItemID.SelectedIndex = intSelect
-    '    End If
-
-
-    'End Sub
-
-    'Private Sub lstOrderItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstOrderItem.SelectedIndexChanged
-    '    SelectedAll()
-    'End Sub
-
-    'Private Sub lstPrice_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstPrice.SelectedIndexChanged
-    '    SelectedAll()
-    'End Sub
-
-    'Private Sub lstQuantity_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstQuantity.SelectedIndexChanged
-    '    SelectedAll()
-    'End Sub
-    'Private Sub lstItemID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstItemID.SelectedIndexChanged
-    '    SelectedAll()
-    'End Sub
-
     Private Sub frmOdering_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
     End Sub

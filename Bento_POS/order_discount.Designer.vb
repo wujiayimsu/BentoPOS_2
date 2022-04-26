@@ -24,6 +24,8 @@ Partial Class frmOrder_discount
     Private Sub InitializeComponent()
         Me.pnlButtonGroup = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlDiscountInfo = New System.Windows.Forms.Panel()
+        Me.lblDiscountID = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.lblDescription = New System.Windows.Forms.Label()
         Me.lblDiscount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,8 +35,6 @@ Partial Class frmOrder_discount
         Me.btnApply = New System.Windows.Forms.Button()
         Me.pnlRibbon = New System.Windows.Forms.Panel()
         Me.lblDeveloper = New System.Windows.Forms.Label()
-        Me.lblDiscountID = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.pnlDiscountInfo.SuspendLayout()
         Me.pnlRibbon.SuspendLayout()
         Me.SuspendLayout()
@@ -58,6 +58,25 @@ Partial Class frmOrder_discount
         Me.pnlDiscountInfo.Name = "pnlDiscountInfo"
         Me.pnlDiscountInfo.Size = New System.Drawing.Size(444, 107)
         Me.pnlDiscountInfo.TabIndex = 2
+        '
+        'lblDiscountID
+        '
+        Me.lblDiscountID.AutoSize = True
+        Me.lblDiscountID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiscountID.Location = New System.Drawing.Point(182, 11)
+        Me.lblDiscountID.Name = "lblDiscountID"
+        Me.lblDiscountID.Size = New System.Drawing.Size(0, 19)
+        Me.lblDiscountID.TabIndex = 63
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(77, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(99, 19)
+        Me.Label4.TabIndex = 62
+        Me.Label4.Text = "Discount ID : "
         '
         'lblDescription
         '
@@ -159,25 +178,6 @@ Partial Class frmOrder_discount
         Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
         Me.lblDeveloper.TabIndex = 52
         Me.lblDeveloper.Text = "Jiayi Wu@2022"
-        '
-        'lblDiscountID
-        '
-        Me.lblDiscountID.AutoSize = True
-        Me.lblDiscountID.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiscountID.Location = New System.Drawing.Point(182, 11)
-        Me.lblDiscountID.Name = "lblDiscountID"
-        Me.lblDiscountID.Size = New System.Drawing.Size(0, 19)
-        Me.lblDiscountID.TabIndex = 63
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(77, 11)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(99, 19)
-        Me.Label4.TabIndex = 62
-        Me.Label4.Text = "Discount ID : "
         '
         'frmOrder_discount
         '

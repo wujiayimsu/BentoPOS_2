@@ -51,7 +51,6 @@ Partial Class frmOrdering
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnPay = New System.Windows.Forms.Button()
         Me.btnSplitEqual = New System.Windows.Forms.Button()
-        Me.btnLine = New System.Windows.Forms.Button()
         Me.btnDiscount = New System.Windows.Forms.Button()
         Me.btnRemoveItem = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -374,25 +373,12 @@ Partial Class frmOrdering
         Me.btnSplitEqual.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnSplitEqual.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplitEqual.ForeColor = System.Drawing.Color.Black
-        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 510)
+        Me.btnSplitEqual.Location = New System.Drawing.Point(477, 509)
         Me.btnSplitEqual.Name = "btnSplitEqual"
         Me.btnSplitEqual.Size = New System.Drawing.Size(110, 40)
         Me.btnSplitEqual.TabIndex = 30
         Me.btnSplitEqual.Text = "Split Equally"
         Me.btnSplitEqual.UseVisualStyleBackColor = False
-        '
-        'btnLine
-        '
-        Me.btnLine.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.btnLine.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
-        Me.btnLine.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLine.ForeColor = System.Drawing.Color.Black
-        Me.btnLine.Location = New System.Drawing.Point(477, 303)
-        Me.btnLine.Name = "btnLine"
-        Me.btnLine.Size = New System.Drawing.Size(110, 40)
-        Me.btnLine.TabIndex = 28
-        Me.btnLine.Text = "Line"
-        Me.btnLine.UseVisualStyleBackColor = False
         '
         'btnDiscount
         '
@@ -400,7 +386,7 @@ Partial Class frmOrdering
         Me.btnDiscount.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumPink
         Me.btnDiscount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDiscount.ForeColor = System.Drawing.Color.Black
-        Me.btnDiscount.Location = New System.Drawing.Point(477, 441)
+        Me.btnDiscount.Location = New System.Drawing.Point(477, 423)
         Me.btnDiscount.Name = "btnDiscount"
         Me.btnDiscount.Size = New System.Drawing.Size(110, 40)
         Me.btnDiscount.TabIndex = 26
@@ -413,7 +399,7 @@ Partial Class frmOrdering
         Me.btnRemoveItem.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnRemoveItem.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemoveItem.ForeColor = System.Drawing.Color.Black
-        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 234)
+        Me.btnRemoveItem.Location = New System.Drawing.Point(477, 251)
         Me.btnRemoveItem.Name = "btnRemoveItem"
         Me.btnRemoveItem.Size = New System.Drawing.Size(110, 40)
         Me.btnRemoveItem.TabIndex = 22
@@ -426,7 +412,7 @@ Partial Class frmOrdering
         Me.btnClear.BackgroundImage = Global.ReadSearch.My.Resources.Resources.YumYellow
         Me.btnClear.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Location = New System.Drawing.Point(477, 372)
+        Me.btnClear.Location = New System.Drawing.Point(477, 337)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(110, 40)
         Me.btnClear.TabIndex = 16
@@ -485,7 +471,7 @@ Partial Class frmOrdering
         Me.lblDeveloper.AutoSize = True
         Me.lblDeveloper.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDeveloper.ForeColor = System.Drawing.Color.White
-        Me.lblDeveloper.Location = New System.Drawing.Point(1016, 9)
+        Me.lblDeveloper.Location = New System.Drawing.Point(1024, 0)
         Me.lblDeveloper.Name = "lblDeveloper"
         Me.lblDeveloper.Size = New System.Drawing.Size(112, 19)
         Me.lblDeveloper.TabIndex = 51
@@ -532,7 +518,6 @@ Partial Class frmOrdering
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnSplitEqual)
-        Me.Controls.Add(Me.btnLine)
         Me.Controls.Add(Me.btnDiscount)
         Me.Controls.Add(Me.btnRemoveItem)
         Me.Controls.Add(Me.btnClear)
@@ -558,7 +543,6 @@ Partial Class frmOrdering
     Friend WithEvents btnExit As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnRemoveItem As Button
-    Friend WithEvents btnLine As Button
     Friend WithEvents btnSplitEqual As Button
     Friend WithEvents lstOrderItem As ListBox
     Friend WithEvents Label4 As Label
