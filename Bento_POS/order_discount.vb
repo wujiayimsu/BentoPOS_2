@@ -1,4 +1,5 @@
-﻿Public Class frmOrder_discount
+﻿'Programmed By JiayiWU
+Public Class frmOrder_discount
     Private DB As New DBAccess
     Public dtAllDiscount As New DataTable
     Public dtSingleDiscount As New DataTable

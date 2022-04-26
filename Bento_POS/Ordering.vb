@@ -1,5 +1,4 @@
 ﻿'Programmmed by Jiayi Wu
-
 Public Class frmOrdering
     Private DB As New DBAccess
     Dim rs As New Resizer
@@ -7,6 +6,7 @@ Public Class frmOrdering
     Dim dtOrderItem As New DataTable
     Dim decSplitAmt As Decimal
     Dim decDiscountAmt As Decimal = 0.00
+    Dim decTotal As Decimal
 
 
 
@@ -174,7 +174,6 @@ Public Class frmOrdering
         decTax = CDec(lblTax.Text)
     End Sub
     Sub Total()
-        Dim decTotal As Decimal
 
         decTotal = CDec(lblSubTotal.Text) + CDec(lblTax.Text) + CDec(lblDiscAmt.Text)
         lblTotal.Text = decTotal.ToString("N2")
@@ -424,10 +423,8 @@ Public Class frmOrdering
 
     End Sub
 
-
-
-
     '*********************************************  OTHER FUNCTIONS   *********************************************************'
+
     Private Sub frmOdering_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         rs.ResizeAllControls(Me)
     End Sub

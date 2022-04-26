@@ -1,4 +1,5 @@
-﻿Public Class Order_Payment
+﻿'Programmed by JiayiWu
+Public Class Order_Payment
     Private DB As DBAccess
 
 

@@ -1,12 +1,23 @@
-﻿Public Class Order_Split
+﻿'Programmed by JiayiWU
+Public Class Order_Split
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         lblSplitCount.Text = String.Empty
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-        intSplitCount = lblSplitCount.Text
-        Me.Close()
-        frmOrdering.Focus()
+        Dim intInteger As Integer
+        If String.IsNullOrEmpty(lblSplitCount.Text) = False Then
+            If Integer.TryParse(lblSplitCount.Text, intInteger) = False Then
+                MessageBox.Show("Please select number from below to proceed")
+                lblSplitCount.Text = String.Empty
+            Else
+                intSplitCount = lblSplitCount.Text
+                Me.Close()
+                frmOrdering.Focus()
+            End If
+        Else
+            MessageBox.Show("Please select number from below to proceed")
+        End If
     End Sub
 
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click

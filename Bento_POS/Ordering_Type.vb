@@ -1,4 +1,6 @@
-﻿Imports System.Text.RegularExpressions
+﻿
+'Programmed by JiayiWU
+Imports System.Text.RegularExpressions
 Public Class frmOrdering_Type
     Private DB As New DBAccess
     Dim rs As New Resizer
@@ -244,4 +246,6 @@ WHERE o.order_id = ?")
 
         dgvHistory.DataSource = DB.DBDataTable
     End Sub
+
+
 End Class
